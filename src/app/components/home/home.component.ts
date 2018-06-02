@@ -1,5 +1,16 @@
+/*****************************
+ *  Package imports
+******************************/
+
 import { Component, OnInit } from '@angular/core';
+
+/*****************************
+ *  Components 
+******************************/
+
 import { NavbarComponent } from '../index';
+import { HomeLinksComponent } from '../home-links/home-links.component';
+
 
 @Component({
   selector: 'app-home',

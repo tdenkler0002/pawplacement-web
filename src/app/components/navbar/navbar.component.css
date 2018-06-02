@@ -1,3 +1,6 @@
+.pp-logo {
+    float: left;
+}
 .pp-logo-1 {
     font-family: 'Skranji', cursive;
     color: #CE1C43;
@@ -20,17 +23,24 @@
     font-size: 20px;
 }
 .pp-button-container {
-
+    display: inline-block;
 }
 .btn {
     font-family: 'Abel', sans-serif;
-    font-weight: 800;
+    font-weight: 800;   
     color: #FFFFFF;
     border-radius: 0%;
     padding: 8px;
     width: 115px;
+    max-width: inherit;
     margin: 5px;
     transition: all 0.3s ease;
+}
+@media (max-width: 1000px) {
+    .btn {
+        width: 30%;
+        float: left;
+    }
 }
 .btn-main {
     background-color: #CE1C43;
@@ -51,7 +61,7 @@
     background-color: #a39c92;
 }
 .pp-hamburger-container {
-    float: left;
+    float: right;
     padding-top: 8px;
     padding-right: 2px;
 }
@@ -66,6 +76,8 @@
 .pp-menu {
     font-family: 'Abel', sans-serif;
     font-weight: 800;
-    font-size: 30px;
+    font-size: 25px;
+    float: right;
+    padding-right: 5px;
     
 }

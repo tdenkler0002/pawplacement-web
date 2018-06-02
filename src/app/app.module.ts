@@ -1,17 +1,43 @@
+/*****************************
+ *  Package imports
+******************************/
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+/*****************************
+ *  Modules
+******************************/
+
+import { AppRoutingModule } from './app-routing.module';
+
+/*****************************
+ *  Components
+******************************/
+
 import { AppComponent } from './app.component';
-import { HomeComponent, NavbarComponent } from './components/index';
+import { HomeComponent, NavbarComponent, HomeLinksComponent,
+  NewsComponent
+} from './components/index';
+
+/*****************************
+ *  Third-Party
+******************************/
+
+import { OwlModule } from 'ngx-owl-carousel';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeLinksComponent,
+    NewsComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    OwlModule
   ],
   providers: [],
   bootstrap: [AppComponent]

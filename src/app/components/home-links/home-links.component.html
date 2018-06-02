@@ -1,0 +1,76 @@
+<div class="pp-owl-wrapper">
+	<owl-carousel 
+		[options]="sliderOptions"
+		[items]="images"
+		[carouselClasses]="['owl-theme', 'row', 'sliding']">
+		<div class="item">
+			<!-- Adopt -->
+			<div class="pp-img pp-top-img hvr-bounce-to-right"
+				(mouseenter)="populateHoverText(linkType.Adopt)"
+				(mouseleave)="toggleHoverText(false)">
+				<div [hidden]='!textHovered'class="pp-hover-text">
+					{{adoptText}}
+				</div>
+				<div class="pp-label pp-label-left red">
+					<span class="pp-label-text">Adopt</span>
+				</div>
+				<img src="../../assets/img/adopt.png">
+			</div> 
+			<!-- Volunteer -->
+			<div class="pp-img pp-bottom-img hvr-bounce-to-right"
+				(mouseenter)="populateHoverText(linkType.Volunteer)"
+				(mouseleave)="toggleHoverText(false)">
+				<div [hidden]='!textHovered'class="pp-hover-text">
+					{{volunteerText}}
+				</div>
+				<div class="pp-label pp-label-left green">
+					<span class="pp-label-text">Volunteer</span>
+				</div>
+				<img src="../../assets/img/cats.png">
+			</div>
+		</div>
+
+		<div class="item">
+			<!-- Resources -->
+			<div class="pp-img pp-top-img hvr-bounce-to-right"
+				(mouseenter)="populateHoverText(linkType.Resources)"
+				(mouseleave)="toggleHoverText(false)">
+				<div [hidden]='!textHovered'class="pp-hover-text">
+					{{resourcesText}}
+				</div>
+				<div class="pp-label pp-label-right orange">	
+					<span class="pp-label-text">Resources</span>
+				</div>
+				<img src="../../assets/img/cat.png">
+			</div> 
+			<!-- Donate -->
+			<div class="pp-img pp-bottom-img hvr-bounce-to-right"
+				(mouseenter)="populateHoverText(linkType.Donate)"
+				(mouseleave)="toggleHoverText(false)">
+				<div [hidden]='!textHovered'class="pp-hover-text">
+					{{donateText}}
+				</div>
+				<div class="pp-label pp-label-right purple">
+					<span class="pp-label-text">Donate</span>
+				</div>
+				<img src="../../assets/img/donate.png">
+			</div>
+		</div>
+
+		<div class="item">
+			<!-- About -->
+			<div class="pp-feature-img hvr-bounce-to-right"
+				(mouseenter)="populateHoverText(linkType.About)"
+				(mouseleave)="toggleHoverText(false)">
+				<div [hidden]='!textHovered'class="pp-hover-text">
+					{{aboutText}}
+				</div>
+				<div class="pp-label blue">
+					<span class="pp-label-text">About</span>
+				</div>
+				<img src="../../assets/img/about_dog.png">
+			</div>
+		</div>
+		
+	</owl-carousel>
+</div>

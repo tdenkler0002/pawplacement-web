@@ -1,0 +1,25 @@
+* Adoptions - cats & dogs
+    - Form, Service to submit forms, email Service
+
+ - how to Adopt
+
+ * Available animals
+    - DB
+    - Service to get animals
+    - Generating Service
+
+* Recently adopted animals
+    - DB - Service to get recent adopted
+
+* Donate 
+ - Wish list
+ - Monetary gifts - Shopping cart / CC
+
+
+* Volunteer
+
+
+* Resources
+
+
+* Contact
