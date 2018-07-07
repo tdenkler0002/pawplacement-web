@@ -10,14 +10,17 @@ import { NgModule } from '@angular/core';
 ******************************/
 
 import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
 
 /*****************************
  *  Components
 ******************************/
 
 import { AppComponent } from './app.component';
-import { HomeComponent, NavbarComponent, HomeLinksComponent,
-	NewsComponent, NewsItemComponent
+import {
+	HomeComponent, NavbarComponent, HomeLinksComponent,
+	NewsComponent, NewsItemComponent, NewsCreateComponent,
+	NewsEditComponent
 } from './components/index';
 
 /*****************************
@@ -26,6 +29,10 @@ import { HomeComponent, NavbarComponent, HomeLinksComponent,
 
 import { OwlModule } from 'ngx-owl-carousel';
 
+/*****************************
+ *  Routes
+******************************/
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -33,7 +40,9 @@ import { OwlModule } from 'ngx-owl-carousel';
 		NavbarComponent,
 		HomeLinksComponent,
 		NewsComponent,
-		NewsItemComponent
+		NewsItemComponent,
+		NewsCreateComponent,
+		NewsEditComponent
 	],
 	imports: [
 		BrowserModule,

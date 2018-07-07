@@ -10,11 +10,34 @@ import { RouterModule, Routes, Router } from '@angular/router';
  *  Components
 ******************************/
 
-import { HomeComponent } from './components';
+import { HomeComponent, NewsComponent, NewsItemComponent,
+	NewsCreateComponent, NewsEditComponent
+} from './components';
 
 const routes: Routes = [
-	{ path: '',  component: HomeComponent },
-
+	{
+		path: '',
+		component: HomeComponent },
+	{
+		path: 'news',
+		component: NewsComponent,
+		data: {title: 'News List'}
+	},
+	{
+		path: 'news-item/:id',
+		component: NewsItemComponent,
+		data: {title: 'News Details'}
+	},
+	{
+		path: 'news-create',
+		component: NewsCreateComponent,
+		data: {title: 'Create News'}
+	},
+	{
+		path: 'news-edit',
+		component: NewsEditComponent,
+		data: {title: 'Edit News'}
+	}
 ];
 
 @NgModule({
