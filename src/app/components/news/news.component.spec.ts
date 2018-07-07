@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewsComponent } from './news.component';
 import { NewsItemComponent } from '..';
+import { OwlModule } from 'ngx-owl-carousel';
 
 describe('NewsComponent', () => {
 	let component: NewsComponent;
@@ -9,6 +10,9 @@ describe('NewsComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
+			imports: [
+				OwlModule
+			],
 			declarations: [
 				NewsComponent,
 				NewsItemComponent

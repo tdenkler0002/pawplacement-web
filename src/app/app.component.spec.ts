@@ -1,4 +1,5 @@
 import { TestBed, async, ComponentFixture, fakeAsync } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HomeComponent, NavbarComponent, HomeLinksComponent, NewsComponent, NewsItemComponent } from './components/index';
 import { OwlModule } from 'ngx-owl-carousel';
@@ -11,7 +12,8 @@ describe('AppComponent', () => {
 	beforeEach(fakeAsync(() => {
 		TestBed.configureTestingModule({
 			imports: [
-				OwlModule
+				OwlModule,
+				RouterTestingModule
 			],
 			declarations: [
 				AppComponent,
