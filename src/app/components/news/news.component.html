@@ -1,3 +1,5 @@
-<p>
-  news works!
-</p>
+<div class="news-list container-fluid">
+    <app-news-item  *ngFor="let newsItem of news"
+      [newsItem]="newsItem">
+    </app-news-item>
+</div>

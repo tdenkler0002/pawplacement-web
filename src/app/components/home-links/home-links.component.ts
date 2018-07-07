@@ -2,8 +2,8 @@
  *  Package imports
 ******************************/
 
-import { Component, OnInit, HostListener, 
-	ViewChild, ElementRef, Inject 
+import { Component, OnInit, HostListener,
+	ViewChild, ElementRef, Inject
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
@@ -17,32 +17,32 @@ import { OwlCarousel } from 'ngx-owl-carousel';
  *  Classes / pipes / enums
 ******************************/
 
-import { LinkTypesEnum } from '../../enums/link-types.enum';
+import { LinkTypesEnum } from '../../enums/index';
 
 
 @Component({
-	selector: 'home-links',
+	selector: 'app-home-links',
 	templateUrl: './home-links.component.html',
 	styleUrls: ['./home-links.component.css']
 })
 export class HomeLinksComponent implements OnInit {
 	linkType = LinkTypesEnum;
-	
+
 	textHovered = false;
 
-	adoptText: string = '';
-	donateText: string = '';
-	volunteerText: string = '';
-	resourcesText: string = '';
-	aboutText: string = '';
+	adoptText = '';
+	donateText = '';
+	volunteerText = '';
+	resourcesText = '';
+	aboutText = '';
 
 	sliderOptions = {
 		items: 3,
 		autoplay: true,
 		autoplayTimeout: 5000,
 		autoplayHoverPause: true,
-		smartSpeed: 3000, 
-		dots: true, 
+		smartSpeed: 3000,
+		dots: true,
 		responsive: {
 			0: {
 				items: 2,
@@ -59,7 +59,7 @@ export class HomeLinksComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	populateHoverText(linkPage: LinkTypesEnum): void {	
+	populateHoverText(linkPage: LinkTypesEnum): void {
 		switch (linkPage) {
 			case LinkTypesEnum.Adopt:
 				this.adoptText = 'Learn How to Adopt, See Our Available Cats and Dogs and Recent Adoptions.';
@@ -100,5 +100,4 @@ export class HomeLinksComponent implements OnInit {
 			this.aboutText  = '';
 		}
 	}
-
 }

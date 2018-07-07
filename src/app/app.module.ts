@@ -17,7 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent, NavbarComponent, HomeLinksComponent,
-  NewsComponent
+	NewsComponent, NewsItemComponent
 } from './components/index';
 
 /*****************************
@@ -27,19 +27,20 @@ import { HomeComponent, NavbarComponent, HomeLinksComponent,
 import { OwlModule } from 'ngx-owl-carousel';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    NavbarComponent,
-    HomeLinksComponent,
-    NewsComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    OwlModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		HomeComponent,
+		NavbarComponent,
+		HomeLinksComponent,
+		NewsComponent,
+		NewsItemComponent
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		OwlModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
