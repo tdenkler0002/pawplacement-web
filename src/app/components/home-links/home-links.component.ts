@@ -11,14 +11,17 @@ import { DOCUMENT } from '@angular/common';
  *  Components
 ******************************/
 
-import { OwlCarousel } from 'ngx-owl-carousel';
-
 /*****************************
  *  Classes / pipes / enums
 ******************************/
 
 import { LinkTypesEnum } from '../../enums/index';
 
+/*****************************
+ *  Third-Party
+******************************/
+
+import { OwlCarousel } from 'ngx-owl-carousel';
 
 @Component({
 	selector: 'app-home-links',
@@ -54,6 +57,7 @@ export class HomeLinksComponent implements OnInit {
 		}
 	};
 
+	// TODO: Look at removing document?
 	constructor(@Inject(DOCUMENT) private document: any) { }
 
 	ngOnInit() {

@@ -1,5 +1,11 @@
-<div class="news-list container-fluid">
-    <app-news-item  *ngFor="let newsItem of news"
-      [newsItem]="newsItem">
-    </app-news-item>
+<div class="pp-owl-wrapper">
+  <owl-carousel
+    [options]="sliderOptions"
+    [items]="news"
+    [carouselClasses]="['owl-theme', 'row', 'sliding']">
+      <app-news-item  *ngFor="let newsItem of news"
+        [newsItem]="newsItem">
+      </app-news-item>
+  </owl-carousel>
+    
 </div>
