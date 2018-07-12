@@ -1,3 +1,9 @@
-<div class="news-item-card col-md-12">
-  {{ newsItem.articleTitle }}
+<div class="news-item-card card">
+	<img class="card-img-top"
+		src='../../assets/img/news_placeholder.jpg'
+		alt="Card image cap">
+	<div class="card-body">
+		<h5 class="card-title">{{ newsItem.articleTitle }}</h5>
+		<p class="card-text">{{ newsItem.articleContent | slice:0:100 }}</p>
+	</div>
 </div>

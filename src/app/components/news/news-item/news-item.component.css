@@ -1,3 +1,20 @@
 .news-item-card {
-    
+    width: 18rem;
+    margin: 5px 20px;
+}
+.card-img-top {
+    max-height: 220px;
+}
+
+.card-title {
+    font-family: 'Abel', sans-serif;
+    color: #CE1C43;
+    font-size: 24px;
+}
+
+.card-body {
+    font-family: 'Abel', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 15px;
 }

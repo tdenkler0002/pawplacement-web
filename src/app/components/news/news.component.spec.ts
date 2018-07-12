@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NewsComponent } from './news.component';
 import { NewsItemComponent } from '..';
 import { OwlModule } from 'ngx-owl-carousel';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('NewsComponent', () => {
 	let component: NewsComponent;
@@ -16,6 +17,10 @@ describe('NewsComponent', () => {
 			declarations: [
 				NewsComponent,
 				NewsItemComponent
+			],
+			providers: [
+				HttpClient,
+				HttpHandler
 			]
 		})
 			.compileComponents();

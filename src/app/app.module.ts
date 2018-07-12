@@ -3,6 +3,8 @@
 ******************************/
 
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 /*****************************
@@ -46,6 +48,8 @@ import { OwlModule } from 'ngx-owl-carousel';
 	],
 	imports: [
 		BrowserModule,
+		HttpClientModule,
+		FormsModule,
 		AppRoutingModule,
 		OwlModule
 	],

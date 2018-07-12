@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { NavbarComponent, HomeLinksComponent, NewsComponent, NewsItemComponent } from '../index';
 import { OwlModule } from 'ngx-owl-carousel';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('HomeComponent', () => {
 	let component: HomeComponent;
@@ -19,6 +20,10 @@ describe('HomeComponent', () => {
 				HomeLinksComponent,
 				NewsComponent,
 				NewsItemComponent
+			],
+			providers: [
+				HttpClient,
+				HttpHandler
 			]
 		})
 		.compileComponents();
