@@ -1,0 +1,31 @@
+.footer-wrapper {
+	position: absolute;
+	bottom: 0;
+	background-color: #CE1C43;
+	color: #FFF;
+	min-height: 200px;
+	height: 200px;
+	padding: 20px;
+}
+.footer-links-row {
+	justify-content: center;
+}
+.footer-links-row > a > img {
+	width: 45px;
+	margin: 10px;
+}
+.footer-links-row-2 {
+	justify-content: center;
+	font-family: 'Abel', sans-serif;
+    font-weight: 800;
+	font-size: 22px;
+	letter-spacing: 1px;
+}
+.footer-links-row-2 > a {
+	color: #FFF;
+	margin: 0 15px;
+}
+.footer-cat {
+	width: 150px;
+	float: right;
+}

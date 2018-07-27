@@ -2,10 +2,19 @@
     width: 18rem;
     margin: 5px 20px;
 }
+.card-img-wrapper {
+    height: 220px;
+    overflow: hidden;
+    width: 100%;
+}
 .card-img-top {
     max-height: 220px;
+    transition: all .2s ease-in-out;
 }
-
+.card-img-top:hover {
+    overflow: none;
+    transform: scale(1.1);
+}
 .card-title {
     font-family: 'Abel', sans-serif;
     color: #CE1C43;

@@ -3,7 +3,7 @@
  *  Package imports
 ******************************/
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 /*****************************
  *  Components
@@ -35,16 +35,17 @@ import { OwlCarousel } from 'ngx-owl-carousel';
 	styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
+	@ViewChild('owlElement') owlElement: OwlCarousel;
+
 	sliderOptions = {
-		items: 5,
-		autoplay: true,
-		autoplayTimeout: 5000,
-		autoplayHoverPause: true,
-		smartSpeed: 3000,
+		items: 3,
+		autoplay: false,
+		smartSpeed: 500,
 		dots: true,
 		responsive: {
-			0: { items: 3},
-			900: { items: 5 }
+			0: { items: 1 },
+			700: { items: 2 },
+			1400: { items: 3 }
 		}
 	};
 
@@ -58,6 +59,16 @@ export class NewsComponent implements OnInit {
 		}, err => {
 			console.log(err);
 		});
+	}
+
+	onNavigate(navigate: string): void {
+		if (navigate === 'next') {
+			this.owlElement.next([500]);
+		}
+
+		if (navigate === 'prev') {
+			this.owlElement.previous([500]);
+		}
 	}
 
 }

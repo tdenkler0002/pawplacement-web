@@ -15,14 +15,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 
 /*****************************
- *  Components
+ *  Components / Directives
 ******************************/
 
 import { AppComponent } from './app.component';
 import {
 	HomeComponent, NavbarComponent, HomeLinksComponent,
 	NewsComponent, NewsItemComponent, NewsCreateComponent,
-	NewsEditComponent
+	NewsEditComponent, FooterComponent
 } from './components/index';
 
 /*****************************
@@ -44,13 +44,16 @@ import { OwlModule } from 'ngx-owl-carousel';
 		NewsComponent,
 		NewsItemComponent,
 		NewsCreateComponent,
-		NewsEditComponent
+		NewsEditComponent,
+		FooterComponent
 	],
 	imports: [
 		BrowserModule,
 		HttpClientModule,
 		FormsModule,
 		AppRoutingModule,
+
+		// Third-Party
 		OwlModule
 	],
 	providers: [],
