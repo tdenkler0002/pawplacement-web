@@ -1,7 +1,21 @@
 .navbar {
+	display: grid;
+	grid-template-areas:
+	"pp-logo pp-logo pp-buttons pp-buttons pp-menu-btn";
+	grid-template-columns: 3fr, 2fr, 1fr;
     background: #fff;
+    padding: 10px;
+}
+@media(max-width: 750px) {
+	.navbar {
+		grid-template-areas:
+		"pp-logo pp-logo pp-menu-btn"
+		"pp-buttons pp-buttons pp-buttons";
+		grid-template-columns: 1fr 1fr 1fr;
+	}
 }
 .pp-logo {
+	grid-area: pp-logo;
     float: left;
 }
 .pp-logo-1 {
@@ -11,7 +25,6 @@
 }
 .pp-logo-img {
     padding: 5px;
-    padding-bottom: 35px;
 }
 .pp-logo-2 {
     font-family: 'Skranji', cursive;
@@ -19,32 +32,52 @@
     font-size: 30px;
 }
 .pp-logo-sub {
-    margin-top: -30px;
+    margin-top: -20px;
     display: block;
     padding-left: 100px;
     font-family: 'Abel', sans-serif;
     font-size: 20px;
 }
+@media (max-width: 450px) {
+	.pp-logo-1 {
+		font-size: 48px;
+	}
+	.pp-logo-2 {
+		font-size: 24px;
+	}
+	.pp-logo-sub {
+		font-size: 16px;
+	}
+}
 .pp-button-container {
-    display: inline-block;
+	grid-area: pp-buttons;
+	display: flex;
+	flex: 1 0 auto;
+	align-items: center;
+	justify-content: center;
 }
 .btn {
-    font-family: 'Abel', sans-serif;
-    font-weight: 800;   
+	font-family: 'Abel', sans-serif;
+	font-weight: 800;
     color: #FFFFFF;
-    border-radius: 0%;
-    padding: 8px;
-    width: 115px;
-    max-width: inherit;
-    margin: 5px;
+	border-radius: 0%;
+	text-decoration: none;
+	text-align: center;
+	line-height: 50px;
+	width: 150px;
+	height: 50px;
+	padding: 0px;
+	margin: 5px;
     transition: all 0.3s ease;
 }
+
 @media (max-width: 1000px) {
     .btn {
         width: 30%;
         float: left;
     }
 }
+
 .btn-main {
     background-color: #CE1C43;
 }
@@ -64,13 +97,14 @@
     background-color: #a39c92;
 }
 .pp-hamburger-container {
-    float: right;
-    padding-top: 8px;
-    padding-right: 2px;
+	grid-area: pp-menu-btn;
+	display: inline-flex;
+	justify-self: end;
+	align-items: center;
 }
 .ham-bar {
-    display: block;
-    margin: 3px;
+	display: block;
+	margin: 3px;
     width: 25px;
     height: 5px;
     border-radius: 1px;
@@ -80,7 +114,6 @@
     font-family: 'Abel', sans-serif;
     font-weight: 800;
     font-size: 25px;
-    float: right;
-    padding-right: 5px;
+	padding-right: 5px;
     
 }

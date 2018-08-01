@@ -1,9 +1,10 @@
-<div class="news-container container-fluid">
-	<h2>What's New?</h2>
-	<div class="news-items-container row">
-		<div class="col-md-1"></div>
+<div class="news-container">
+	<div class="news-header">
+		<h2>What's New?</h2>
+	</div>
+	<div class="news-items-container">
 		<!-- Previous Arrow-->
-		<div class="nav-arrows col-md-1 d-none d-sm-none d-md-block">
+		<div class="prev-nav">
 			<svg (click)="onNavigate('prev')" width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				<g id="prev" transform="translate(8.500000, 8.500000) scale(-1, 1) translate(-8.500000, -8.500000)">
 					<polygon class="arrow" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
@@ -14,7 +15,7 @@
 		</div>
 
 		<!-- News Items-->
-		<div class="news-items col-md-8 col-sm-12">
+		<div class="news-items">
 			<owl-carousel #owlElement
 				[options]="sliderOptions"
 				[items]="news"
@@ -28,7 +29,7 @@
 		</div>
 
 		<!-- Next Arrow-->
-		<div class="nav-arrows col-md-1 d-none d-sm-none d-md-block">
+		<div class="for-nav">
 			<svg (click)="onNavigate('next')" width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				<g>
 					<polygon class="arrow" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
