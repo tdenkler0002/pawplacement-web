@@ -6,3 +6,4 @@ export { NewsItemComponent } from './news/news-item/news-item.component';
 export { NewsCreateComponent } from './news/news-create/news-create.component';
 export { NewsEditComponent } from './news/news-edit/news-edit.component';
 export { FooterComponent } from './footer/footer.component';
+export { MissionComponent } from './mission/mission.component';

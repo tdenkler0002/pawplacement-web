@@ -9,9 +9,10 @@
     "header"
     "home-links"
     "home-news-container"
+    "home-content-container"
     "footer";
     grid-template-columns: 5fr;
-    grid-template-rows: 75px auto auto 200px;
+    grid-template-rows: 75px repeat(3, auto) 200px;
 }
 .home-nav {
     grid-area: header;
@@ -25,7 +26,6 @@
 .home-links {
     grid-area: home-links;
     grid-column: 1 / span 4;
-    grid-row: 2;
 
     padding-top: 30px;
     overflow: hidden;
@@ -35,18 +35,19 @@
 .home-news-container {
     grid-area: home-news-container;
     grid-column: 1 / span 4;
-    grid-row: 3;
 
     background-image: url('../../../assets/img/hypnotize.png');
-    margin: 10px 0;
+    margin: 10px 0 0;
     margin-top: -50px;
-    padding-bottom: 50px;
+    padding-bottom: 25px;
     padding-top: 50px;
+}
+.home-content-container {
+    grid-area: home-content-container;
 }
 .home-footer {
     grid-area: footer;
     grid-column: 1 / span 5;
-    grid-row: 4;
 
 	align-self: end;	
 }

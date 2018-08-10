@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
  *  Components
 ******************************/
 
-import { NavbarComponent, HomeLinksComponent, FooterComponent } from '../index';
+import {
+	NavbarComponent, HomeLinksComponent, FooterComponent,
+	MissionComponent
+} from '../index';
 
 @Component({
 	selector: 'app-home',

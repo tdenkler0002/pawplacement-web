@@ -15,6 +15,7 @@
 	}
 }
 .pp-logo {
+	justify-self: center;
 	grid-area: pp-logo;
     float: left;
 }
