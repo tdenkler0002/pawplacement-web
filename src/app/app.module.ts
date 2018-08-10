@@ -22,7 +22,7 @@ import { AppComponent } from './app.component';
 import {
 	HomeComponent, NavbarComponent, HomeLinksComponent,
 	NewsComponent, NewsItemComponent, NewsCreateComponent,
-	NewsEditComponent, FooterComponent
+	NewsEditComponent, FooterComponent, MissionComponent
 } from './components/index';
 
 /*****************************
@@ -45,7 +45,8 @@ import { OwlModule } from 'ngx-owl-carousel';
 		NewsItemComponent,
 		NewsCreateComponent,
 		NewsEditComponent,
-		FooterComponent
+		FooterComponent,
+		MissionComponent
 	],
 	imports: [
 		BrowserModule,
