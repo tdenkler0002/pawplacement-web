@@ -1,9 +1,22 @@
+/*****************************
+ *  Package Imports
+******************************/
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+
+/*****************************
+ *  Components
+******************************/
 
 import { NewsComponent } from './news.component';
-import { NewsItemComponent } from '..';
+import { NewsItemComponent } from '../index';
+
+/*****************************
+ *  Third-Party
+******************************/
+
 import { OwlModule } from 'ngx-owl-carousel';
-import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('NewsComponent', () => {
 	let component: NewsComponent;

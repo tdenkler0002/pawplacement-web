@@ -12,6 +12,7 @@ import {
 	NavbarComponent, HomeLinksComponent, FooterComponent,
 	MissionComponent
 } from '../index';
+import { AdoptService } from '../../services/adopt.service';
 
 @Component({
 	selector: 'app-home',
@@ -20,9 +21,10 @@ import {
 })
 export class HomeComponent implements OnInit {
 
-	constructor() { }
+	constructor(private adoptService: AdoptService) { }
 
 	ngOnInit() {
+		this.adoptService.getAdoptions().subscribe(res => console.log(res));
 	}
 
 }

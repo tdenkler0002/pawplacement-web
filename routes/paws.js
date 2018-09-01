@@ -1,10 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
+var mongoose = require('mongoose').set('debug', true);
 var News = require('../models/News.js');
+var Pets = require('../models/Pets.js');
+
+/***************************
+ * News
+ ***************************/
 
 /* GET ALL NEWS */
-router.get('/', function(req, res, next) {
+router.get('/news', function(req, res, next) {
     News.find(function(err, items) {
         if (err) return next(err);
         res.json(items);
@@ -12,7 +17,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET SINGLE NEWS BY ID */
-router.get('/:id', function(req, res, next) {
+router.get('/news/:id', function(req, res, next) {
     News.findById(req.params.id, function(err, post) {
         if (err) return next(err);
         res.json(post);
@@ -20,7 +25,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 /* SAVE NEWS */
-router.post('/', function(req, res, next) {
+router.post('/news/', function(req, res, next) {
     News.create(req.body, function(err, post) {
         if (err) return next(err);
         res.json(post);
@@ -28,7 +33,7 @@ router.post('/', function(req, res, next) {
 });
 
 /* UPDATE NEWS */
-router.put('/:id', function(req, res, next) {
+router.put('/news/:id', function(req, res, next) {
     News.findByIdAndUpdate(req,params.id, req.body, function(err, post) {
         if (err) return next(err);
         res.json(post);
@@ -36,10 +41,18 @@ router.put('/:id', function(req, res, next) {
 });
 
 /* DELETE NEWS */
-router.delete('/:id', function(req, res, next) {
+router.delete('/news/:id', function(req, res, next) {
     News.findByIdAndRemove(req.params.id, req.body, function(err, post) {
         if (err) return next(err);
         res.json(post);
+    });
+});
+
+/* GET ALL ANIMALS */
+router.get('/pets', function(req, res, next) {
+    Pets.find(function(err, items) {
+        if (err) return next(err);
+        res.json(items);
     });
 });
 

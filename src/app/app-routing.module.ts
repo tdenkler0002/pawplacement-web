@@ -11,7 +11,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
 ******************************/
 
 import { HomeComponent, NewsComponent, NewsItemComponent,
-	NewsCreateComponent, NewsEditComponent
+	NewsCreateComponent, NewsEditComponent, AdoptComponent
 } from './components';
 
 const routes: Routes = [
@@ -37,6 +37,11 @@ const routes: Routes = [
 		path: 'news-edit',
 		component: NewsEditComponent,
 		data: {title: 'Edit News'}
+	},
+	{
+		path: 'adopt',
+		component: AdoptComponent,
+		data: {title: 'Adoption List'}
 	}
 ];
 

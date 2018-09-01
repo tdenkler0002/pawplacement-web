@@ -1,7 +1,11 @@
 import { TestBed, async, ComponentFixture, fakeAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { HomeComponent, NavbarComponent, HomeLinksComponent, NewsComponent, NewsItemComponent } from './components/index';
+import {
+	HomeComponent, NavbarComponent, HomeLinksComponent,
+	NewsComponent, NewsItemComponent, MissionComponent,
+	FooterComponent
+} from './components/index';
 import { OwlModule } from 'ngx-owl-carousel';
 
 describe('AppComponent', () => {
@@ -21,7 +25,9 @@ describe('AppComponent', () => {
 				NavbarComponent,
 				HomeLinksComponent,
 				NewsComponent,
-				NewsItemComponent
+				NewsItemComponent,
+				MissionComponent,
+				FooterComponent
 			],
 		}).compileComponents();
 	}));
