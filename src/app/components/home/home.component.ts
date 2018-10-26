@@ -21,10 +21,9 @@ import { AdoptService } from '../../services/adopt.service';
 })
 export class HomeComponent implements OnInit {
 
-	constructor(private adoptService: AdoptService) { }
+	constructor() { }
 
 	ngOnInit() {
-		this.adoptService.getAdoptions().subscribe(res => console.log(res));
 	}
 
 }
