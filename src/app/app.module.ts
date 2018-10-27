@@ -12,7 +12,7 @@ import { NgModule } from '@angular/core';
 ******************************/
 
 import { AppRoutingModule } from './app-routing.module';
-import { RouterModule, Routes } from '@angular/router';
+import { AdoptModule } from './modules/adopt/adopt.module';
 
 /*****************************
  *  Components / Directives
@@ -53,6 +53,7 @@ import { OwlModule } from 'ngx-owl-carousel';
 		HttpClientModule,
 		FormsModule,
 		AppRoutingModule,
+		AdoptModule,
 
 		// Third-Party
 		OwlModule

@@ -1,6 +1,6 @@
 .footer-wrapper {
 	display: grid;
-	grid-template-rows: 75px 75px;
+	grid-template-rows: 75px 55px;
 	grid-template-columns: 2fr 2fr 1fr;
 	grid-template-areas:
 	"footer-links-row footer-address footer-img"
@@ -53,6 +53,6 @@
 	grid-area: footer-img;
 	grid-row: 1 / span 2;
 	align-self: center;
-	width: 150px;
+	width: 100px;
 	float: right;
 }

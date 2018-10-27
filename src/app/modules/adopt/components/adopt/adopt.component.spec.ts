@@ -9,28 +9,15 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
  *  Components
 ******************************/
 
-import { NewsComponent } from './news.component';
-import { NewsItemComponent } from '../index';
+import { AdoptComponent } from './adopt.component';
 
-/*****************************
- *  Third-Party
-******************************/
-
-import { OwlModule } from 'ngx-owl-carousel';
-
-describe('NewsComponent', () => {
-	let component: NewsComponent;
-	let fixture: ComponentFixture<NewsComponent>;
+describe('AdoptComponent', () => {
+	let component: AdoptComponent;
+	let fixture: ComponentFixture<AdoptComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			imports: [
-				OwlModule
-			],
-			declarations: [
-				NewsComponent,
-				NewsItemComponent
-			],
+			declarations: [AdoptComponent],
 			providers: [
 				HttpClient,
 				HttpHandler
@@ -40,7 +27,7 @@ describe('NewsComponent', () => {
 	}));
 
 	beforeEach(() => {
-		fixture = TestBed.createComponent(NewsComponent);
+		fixture = TestBed.createComponent(AdoptComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});

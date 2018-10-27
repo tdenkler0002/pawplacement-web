@@ -3,7 +3,7 @@
  *  Package imports
 ******************************/
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 
 /*****************************
  *  Components
@@ -28,13 +28,16 @@ import { NewsService } from '../../services/index';
 ******************************/
 
 import { OwlCarousel } from 'ngx-owl-carousel';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-news',
 	templateUrl: './news.component.html',
 	styleUrls: ['./news.component.css']
 })
-export class NewsComponent implements OnInit {
+export class NewsComponent implements OnInit, OnDestroy {
+	private newsSubscription: Subscription;
+
 	@ViewChild('owlElement') owlElement: OwlCarousel;
 
 	sliderOptions = {
@@ -54,11 +57,17 @@ export class NewsComponent implements OnInit {
 	constructor(private newsService: NewsService) { }
 
 	ngOnInit() {
-		this.newsService.getNews().subscribe(res => {
+		this.newsSubscription = this.newsService.getNews().subscribe(res => {
 			this.news = res;
 		}, err => {
 			console.log(err);
 		});
+	}
+
+	ngOnDestroy() {
+		if (this.newsSubscription) {
+			this.newsSubscription.unsubscribe();
+		}
 	}
 
 	onNavigate(navigate: string): void {

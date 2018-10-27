@@ -21,12 +21,11 @@ import { INewsArticle } from '../interfaces';
  *  Third-Party
 ******************************/
 
-
 const httpOptions = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-const apiUrl = '/api';
+const apiUrl = '/api/news/';
 
 @Injectable({
 	providedIn: 'root'
@@ -103,8 +102,6 @@ export class NewsService {
 
 			newsArticles.push(newsArticle);
 		}
-
-		debugger;
 
 		return newsArticles;
 	}

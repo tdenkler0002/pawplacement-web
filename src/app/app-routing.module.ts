@@ -3,7 +3,7 @@
 ******************************/
 
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, Router } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 
 /*****************************
@@ -13,6 +13,8 @@ import { RouterModule, Routes, Router } from '@angular/router';
 import { HomeComponent, NewsComponent, NewsItemComponent,
 	NewsCreateComponent, NewsEditComponent
 } from './components';
+
+import { AdoptComponent } from './modules/adopt/components/adopt/adopt.component';
 
 const routes: Routes = [
 	{
@@ -37,6 +39,11 @@ const routes: Routes = [
 		path: 'news-edit',
 		component: NewsEditComponent,
 		data: {title: 'Edit News'}
+	},
+	{
+		path: 'adopt',
+		component: AdoptComponent,
+		data: {title: 'Adoption List'}
 	}
 ];
 

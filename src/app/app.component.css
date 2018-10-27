@@ -1,3 +1,40 @@
 html, body{
     background-color: #e2e1e0;
 }
+
+.app-container {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100%;
+    margin: -8px;
+    overflow-x: hidden;
+    
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "app-router-container"
+    "footer";
+    grid-template-columns: 5fr;
+    grid-template-rows: 75px auto 150px;
+}
+.app-nav {
+    grid-area: header;
+    grid-column: 1 / span 5;
+    grid-row: 1;
+
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+}
+.app-router-container {
+    grid-area: app-router-container;
+    grid-column: 1 / span 5;
+    grid-row: 2;
+}
+.app-footer {
+    grid-area: footer;
+    grid-column: 1 / span 5;
+    grid-row: 3;
+
+	align-self: end;	
+}

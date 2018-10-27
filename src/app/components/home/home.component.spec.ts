@@ -1,9 +1,23 @@
+/*****************************
+ *  Package Imports
+******************************/
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+
+/*****************************
+ *  Components
+******************************/
 
 import { HomeComponent } from './home.component';
-import { NavbarComponent, HomeLinksComponent, NewsComponent, NewsItemComponent } from '../index';
+import {
+	NavbarComponent, HomeLinksComponent, NewsComponent,
+	NewsItemComponent, MissionComponent, FooterComponent
+} from '../index';
+
+/*****************************
+ *  Third-Party
+******************************/
 import { OwlModule } from 'ngx-owl-carousel';
-import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('HomeComponent', () => {
 	let component: HomeComponent;
@@ -19,7 +33,9 @@ describe('HomeComponent', () => {
 				NavbarComponent,
 				HomeLinksComponent,
 				NewsComponent,
-				NewsItemComponent
+				NewsItemComponent,
+				MissionComponent,
+				FooterComponent
 			],
 			providers: [
 				HttpClient,

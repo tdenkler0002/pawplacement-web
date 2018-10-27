@@ -17,12 +17,14 @@
 	background-color: rgba(255, 255, 255, .3);
 }
 .pp-mission {
-	
 	font-size: 60px;
 	font-weight: 900;
 	font-family: 'Pathway Gothic One', sans-serif;
 	color: #FFF;
-	text-shadow: 1px 1px #3a3b3b;
-	text-align: right;
+	text-shadow: 1px 1px #1b1b1b;
 	z-index: 3;
+}
+.pp-mission-text {
+	text-align: center;
+	padding: 80px;
 }
