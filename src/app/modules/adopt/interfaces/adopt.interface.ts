@@ -1,4 +1,4 @@
-import { AnimalTypeEnum } from '../enums/index';
+import { AnimalTypeEnum } from '../../../enums/index';
 
 export interface IAdopt {
 	id?: string;

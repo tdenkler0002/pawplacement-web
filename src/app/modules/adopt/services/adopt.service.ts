@@ -17,7 +17,8 @@ import { catchError, map } from 'rxjs/operators';
 *  Interfaces / enums / classes
 ******************************/
 
-import { IAdopt } from '../../../interfaces';
+import { IAdopt } from '../interfaces/index';
+import { AnimalTypeEnum } from 'src/app/enums';
 
 /*****************************
 *  Third-Party

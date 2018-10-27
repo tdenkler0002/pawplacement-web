@@ -1,3 +1,25 @@
-<p>
-  adopt-grid works!
-</p>
+<div class="adopt-container">
+	<div class="adopt-grid">
+		<div class="adopt-card" *ngFor="let adoption of adoptions">
+			<div class="img-wrapper">
+				<img class="adopt-img" src="../../../assets/img/news_placeholder.jpg" />
+			</div>
+			<div class="adopt-details">
+				<span class="adopt-breed">
+					<i class="fas fa-{{adoption.animalType | lowercase }}"></i>
+					{{adoption.animalBreed}}
+				</span>
+				<span class="adopt-name">
+					{{adoption.animalName}}
+				</span>
+
+				<span class="adopt-gender">
+					<span>
+						<i *ngIf="adoption.animalGender == 'Female'" class="fas fa-venus"></i>
+						<i *ngIf="adoption.animalGender == 'Male'" class="fas fa-mars"></i>
+					</span>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
