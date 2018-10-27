@@ -12,7 +12,7 @@ import { NgModule } from '@angular/core';
 ******************************/
 
 import { AppRoutingModule } from './app-routing.module';
-import { RouterModule, Routes } from '@angular/router';
+import { AdoptModule } from './modules/adopt/adopt.module';
 
 /*****************************
  *  Components / Directives
@@ -22,8 +22,7 @@ import { AppComponent } from './app.component';
 import {
 	HomeComponent, NavbarComponent, HomeLinksComponent,
 	NewsComponent, NewsItemComponent, NewsCreateComponent,
-	NewsEditComponent, FooterComponent, MissionComponent,
-	AdoptComponent
+	NewsEditComponent, FooterComponent, MissionComponent
 } from './components/index';
 
 /*****************************
@@ -47,14 +46,14 @@ import { OwlModule } from 'ngx-owl-carousel';
 		NewsCreateComponent,
 		NewsEditComponent,
 		FooterComponent,
-		MissionComponent,
-		AdoptComponent
+		MissionComponent
 	],
 	imports: [
 		BrowserModule,
 		HttpClientModule,
 		FormsModule,
 		AppRoutingModule,
+		AdoptModule,
 
 		// Third-Party
 		OwlModule

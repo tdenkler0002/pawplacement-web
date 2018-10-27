@@ -1,7 +1,9 @@
 /*****************************
  *  Package Imports
 ******************************/
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 /*****************************
  *  Components
@@ -15,7 +17,11 @@ describe('AdoptComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [AdoptComponent]
+			declarations: [AdoptComponent],
+			providers: [
+				HttpClient,
+				HttpHandler
+			]
 		})
 			.compileComponents();
 	}));

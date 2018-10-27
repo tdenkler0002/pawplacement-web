@@ -12,7 +12,7 @@ import {
 	NavbarComponent, HomeLinksComponent, FooterComponent,
 	MissionComponent
 } from '../index';
-import { AdoptService } from '../../services/adopt.service';
+import { AdoptService } from '../../modules/adopt/services/adopt.service';
 
 @Component({
 	selector: 'app-home',

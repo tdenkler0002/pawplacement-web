@@ -21,7 +21,6 @@ import { AdoptService } from '../../services/adopt.service';
 ******************************/
 
 import { Subscription } from 'rxjs';
-import { NOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR } from '../../../../node_modules/@angular/core/src/view/provider';
 
 @Component({
 	selector: 'app-adopt',

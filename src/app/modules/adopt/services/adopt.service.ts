@@ -4,8 +4,8 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
-import { catchError, tap, map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 /*****************************
 *  Components
@@ -17,7 +17,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 *  Interfaces / enums / classes
 ******************************/
 
-import { IAdopt } from '../interfaces';
+import { IAdopt } from '../../../interfaces';
 
 /*****************************
 *  Third-Party
