@@ -62,7 +62,6 @@ export class AdoptGridComponent implements OnInit, OnDestroy {
 			// TODO change later
 			if (adoption.animalName) {
 				this.adoptions.push(adoption);
-				debugger;
 			}
 		});
 
