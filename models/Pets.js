@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var mongoosePaginate = require('mongoosePaginate');
 
 var PetsSchema = new mongoose.Schema({
     impound_no: String,
@@ -22,5 +23,7 @@ var PetsSchema = new mongoose.Schema({
 }, {
     versionKey: false
 });
+
+schema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Pets', PetsSchema);

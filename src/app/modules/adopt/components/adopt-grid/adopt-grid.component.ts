@@ -41,9 +41,12 @@ export class AdoptGridComponent implements OnInit, OnDestroy {
 
 	constructor(private adoptService: AdoptService) { }
 
+	// TODO implement virtual scroll / paging
+
 	ngOnInit() {
 		this.adoptSubscription = this.adoptService.getAdoptions().subscribe((res) => {
 			this.populateAdoptGrid(res);
+			// this.adoptions = res;
 		});
 
 		for (let index = 0; index < 20; index++) {
@@ -65,5 +68,5 @@ export class AdoptGridComponent implements OnInit, OnDestroy {
 			}
 		});
 
-	}
+	// }
 }
