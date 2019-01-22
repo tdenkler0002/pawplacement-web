@@ -2,7 +2,7 @@
  *  Package Imports
 ******************************/
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 
 /*****************************
 *  Components
@@ -16,6 +16,9 @@ import { AdoptGridComponent } from '../index';
 /*****************************
 *  Interfaces / enums / classes
 ******************************/
+
+import { AnimalTypeEnum } from 'src/app/modules/shared/enums';
+
 /*****************************
 *  Third-Party
 ******************************/
@@ -29,7 +32,15 @@ import { Subscription } from 'rxjs';
 })
 
 export class AdoptComponent implements OnInit {
+
+	animalTypeFilter: AnimalTypeEnum = AnimalTypeEnum.BOTH;
+
 	constructor() { }
 
 	ngOnInit() { }
+
+	onAnimalFilterChange(animalTypeFilter: AnimalTypeEnum) {
+		this.animalTypeFilter = animalTypeFilter;
+	}
+
 }

@@ -13,6 +13,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AdoptModule } from './modules/adopt/adopt.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 /*****************************
  *  Components / Directives
@@ -54,6 +55,7 @@ import { OwlModule } from 'ngx-owl-carousel';
 		FormsModule,
 		AppRoutingModule,
 		AdoptModule,
+		SharedModule,
 
 		// Third-Party
 		OwlModule

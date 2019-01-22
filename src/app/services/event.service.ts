@@ -3,6 +3,7 @@
 ******************************/
 
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Subject, Observable } from 'rxjs';
 
 /*****************************
 *  Components
@@ -10,6 +11,9 @@ import { Injectable } from '@angular/core';
 /*****************************
 *  Interfaces / enums / classes
 ******************************/
+
+import { IAdopt } from '../modules/adopt/interfaces/index';
+
 /*****************************
 *  Third-Party
 ******************************/
@@ -19,5 +23,8 @@ import { Injectable } from '@angular/core';
 })
 export class EventService {
 
+	animalsPopulatedSubject = new BehaviorSubject<Array<IAdopt> | undefined>(undefined);
+
 	constructor() { }
+
 }

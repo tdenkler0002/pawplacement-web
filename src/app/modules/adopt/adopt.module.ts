@@ -10,7 +10,8 @@ import { CommonModule } from '@angular/common';
 ******************************/
 
 import {
-	AdoptComponent, AdoptGridComponent, AdoptSearchComponent
+	AdoptComponent, AdoptGridComponent, AdoptSearchComponent,
+	AdoptFilterComponent, AdoptDropdownComponent
 } from './components/index';
 
 /*****************************
@@ -19,6 +20,7 @@ import {
 /*****************************
 *  Interfaces / enums / classes
 ******************************/
+
 /*****************************
 *  Third-Party
 ******************************/
@@ -31,7 +33,9 @@ import {
 	declarations: [
 		AdoptComponent,
 		AdoptGridComponent,
-		AdoptSearchComponent
+		AdoptSearchComponent,
+		AdoptFilterComponent,
+		AdoptDropdownComponent
 	]
 })
 export class AdoptModule { }

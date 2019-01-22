@@ -3,7 +3,7 @@
 ******************************/
 
 import { Component, OnInit, Input } from '@angular/core';
-import { INewsArticle } from '../../../interfaces/index';
+import { INewsArticle } from '../../../modules/shared/interfaces/index';
 
 @Component({
 	selector: 'app-news-item',

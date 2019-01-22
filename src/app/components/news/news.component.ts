@@ -15,7 +15,7 @@ import { NewsItemComponent } from '../index';
  *  Interfaces/Pipes/Class imports
 ******************************/
 
-import { INewsArticle } from '../../interfaces/index';
+import { INewsArticle } from '../../modules/shared/interfaces/index';
 
 /*****************************
  *  Services

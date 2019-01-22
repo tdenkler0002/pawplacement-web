@@ -18,7 +18,7 @@ import { catchError, map } from 'rxjs/operators';
 ******************************/
 
 import { IAdopt } from '../interfaces/index';
-import { AnimalTypeEnum } from 'src/app/enums';
+import { AnimalTypeEnum } from '../../shared/enums/index';
 
 /*****************************
 *  Third-Party
@@ -34,6 +34,8 @@ const apiUrl = '/api/pets/';
 	providedIn: 'root'
 })
 export class AdoptService {
+
+	// TODO implement mongo filtering of data for animals
 
 	constructor(private http: HttpClient) { }
 

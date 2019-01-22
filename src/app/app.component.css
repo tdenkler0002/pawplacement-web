@@ -30,6 +30,8 @@ html, body{
     grid-area: app-router-container;
     grid-column: 1 / span 5;
     grid-row: 2;
+
+    padding-top: 20px;
 }
 .app-footer {
     grid-area: footer;

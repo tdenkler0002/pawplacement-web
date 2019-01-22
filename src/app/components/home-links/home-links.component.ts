@@ -15,7 +15,7 @@ import { DOCUMENT } from '@angular/common';
  *  Classes / pipes / enums
 ******************************/
 
-import { LinkTypesEnum } from '../../enums/index';
+import { LinkTypesEnum } from '../../modules/shared/enums/index';
 
 /*****************************
  *  Third-Party

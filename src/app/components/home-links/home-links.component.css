@@ -1,5 +1,4 @@
 .pp-img {
-    padding: 2px;
     height: auto;
     width: 100%;
     position: relative;  
@@ -7,7 +6,6 @@
 }
 .pp-feature-img {
     padding-left: 2px;
-    padding-top: 3px;
     position: relative;
 }
 .pp-label {

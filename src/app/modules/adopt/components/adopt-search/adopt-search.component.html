@@ -1,3 +1,29 @@
-<p>
-  adopt-search works!
-</p>
+<div class="adopt-search-container">
+    <div class="adopt-filter">
+        <span>Find your next best friend...</span>
+    </div>
+    <div class="adopt-filter-btn hvr-icon-wobble-vertical">
+        <span class="adopt-filter-btn-txt"
+            (click)="onFilterSelect(animalTypeEnum.DOG)">
+            <i class="hvr-icon fas fa-dog"></i>
+            Dogs
+        </span>
+    </div>
+    <div class="adopt-filter-btn hvr-icon-wobble-vertical">
+        <span class="adopt-filter-btn-txt"
+            (click)="onFilterSelect(animalTypeEnum.CAT)">
+            <i class="hvr-icon fas fa-cat"></i>
+            Cats
+        </span>
+    </div>
+    <div class="adopt-filter-btn hvr-icon-wobble-vertical">
+        <span class="adopt-filter-btn-txt"
+            (click)="onFilterSelect(animalTypeEnum.BOTH)">
+            <i class="hvr-icon fas fa-paw"></i>
+            Both
+        </span>
+    </div>
+</div>
+<div class="adopt-filter-container">
+    <app-adopt-filter></app-adopt-filter>
+</div>

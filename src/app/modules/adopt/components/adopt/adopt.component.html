@@ -1,1 +1,6 @@
-<app-adopt-grid></app-adopt-grid>
+<app-adopt-search
+    (animalFilterChange)="onAnimalFilterChange($event)">
+</app-adopt-search>
+<app-adopt-grid
+    [animalTypeFilter]="animalTypeFilter">
+</app-adopt-grid>

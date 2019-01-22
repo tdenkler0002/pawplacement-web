@@ -1,0 +1,139 @@
+.adopt-search-container {
+    background-color: #948484;
+    height: 75px;
+    width: 100%;
+
+    position: sticky;
+    top: 3.7em;
+    z-index: 2;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    color: #FFFFFF;
+    font-family: 'Abel', sans-serif;
+    font-weight: 800;
+    font-size: 25px;
+}
+.adopt-filter-container {
+    position: sticky;
+    top: 10.5em;
+    z-index: 2;
+}
+@media (max-width: 750px) {
+    .adopt-search-container {
+        margin-top: 50px;
+        top: 6em;
+    }
+}
+
+@media (max-width: 450px) {
+    .adopt-search-container {
+        top: 5.8em;
+    }
+}
+.adopt-filter-btn:last-child {
+    border: none;
+}
+.adopt-filter {
+    flex: 1 0 auto;
+    text-align: center;
+
+    height: 100%;
+    background-color: #554545;
+    z-index: 2;
+}
+.adopt-filter > span {
+    align-content: center;
+    line-height: 75px;
+    font-weight: 500;
+}
+.adopt-filter::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 38px solid transparent;
+    border-bottom: 38px solid transparent;
+    border-left: 38px solid #554545;
+    float: right;
+    margin-right: -38px;
+}
+@media(max-width: 750px) {
+    .adopt-filter {
+        display: none;
+    }
+}
+.adopt-filter-btn {
+    flex: 1 0 auto;
+    height: 100%;
+
+    border-right: 1px solid #7c6e6e;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.adopt-filter-btn:hover {
+    background-color: #7c6e6e;
+}
+.adopt-filter-btn:active {
+    background-color: #7c6e6e;
+}
+.adopt-filter-btn-txt {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    height: 100%;
+}
+.hvr-icon-wobble-vertical {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-icon-wobble-vertical .hvr-icon {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.hvr-icon-wobble-vertical:hover .hvr-icon, .hvr-icon-wobble-vertical:focus .hvr-icon, .hvr-icon-wobble-vertical:active .hvr-icon {
+  -webkit-animation-name: hvr-icon-wobble-vertical;
+  animation-name: hvr-icon-wobble-vertical;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+@keyframes hvr-icon-wobble-vertical {
+  16.65% {
+    -webkit-transform: translateY(6px);
+    transform: translateY(6px);
+  }
+  33.3% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  49.95% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+  66.6% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+  83.25% {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
