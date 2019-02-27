@@ -2,7 +2,10 @@
 * Package and class imports
 *******************************/
 
-import { Component, OnInit, Input } from '@angular/core';
+import {
+	Component, OnInit, Input,
+	Output, EventEmitter
+} from '@angular/core';
 
 /********************************
 * Modules
@@ -15,6 +18,7 @@ import { Component, OnInit, Input } from '@angular/core';
 *******************************/
 
 import { AnimalOptionsEnum } from '../../../enums/index';
+import { IAdoptFilter } from '../../../interfaces/adopt-filter.interface';
 
 /********************************
 * Services
@@ -25,7 +29,6 @@ import { AnimalOptionsEnum } from '../../../enums/index';
 /********************************
 * Declaration
 *******************************/
-
 @Component({
 	selector: 'app-adopt-dropdown',
 	templateUrl: './adopt-dropdown.component.html',
@@ -33,9 +36,20 @@ import { AnimalOptionsEnum } from '../../../enums/index';
 })
 export class AdoptDropdownComponent implements OnInit {
 	@Input() dropdownType: AnimalOptionsEnum;
+	@Input() dropdownOptions: Array<string>;
+	@Input() dropdownPlaceholder: string;
+
+	@Output() optionChange: EventEmitter<IAdoptFilter> = new EventEmitter();
+
+	selectedOptions: Array<string> = [];
 
 	constructor() { }
 
-	ngOnInit() {}
+	ngOnInit() { }
+
+	onOptionChange(event: any): void {
+		this.optionChange.emit({filterType: this.dropdownType, filterOptions: this.selectedOptions});
+	}
+
 
 }

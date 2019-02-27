@@ -4,13 +4,14 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /*****************************
 *  Components
 ******************************/
 
 import {
-	AdoptComponent, AdoptGridComponent, AdoptSearchComponent,
+	AdoptComponent, AdoptGridComponent,
 	AdoptFilterComponent, AdoptDropdownComponent
 } from './components/index';
 
@@ -25,15 +26,18 @@ import {
 *  Third-Party
 ******************************/
 
+import { NgSelectModule } from '@ng-select/ng-select';
+
 
 @NgModule({
 	imports: [
-		CommonModule
+		CommonModule,
+		FormsModule,
+		NgSelectModule
 	],
 	declarations: [
 		AdoptComponent,
 		AdoptGridComponent,
-		AdoptSearchComponent,
 		AdoptFilterComponent,
 		AdoptDropdownComponent
 	]

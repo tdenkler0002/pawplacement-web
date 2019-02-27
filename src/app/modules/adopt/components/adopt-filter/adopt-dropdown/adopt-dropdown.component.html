@@ -1,8 +1,17 @@
-<div class="adopt-dropdown" tabindex="1"> <!--Make tabindex dynamic-->
-  <input class="selectopt"
-    name="testName"
-    id="opt1"
-    type="radio"
-    checked>
-  <label class="option">Testing</label>
-</div>
+<ng-select class="adopt-dropdown"
+    [items]="dropdownOptions"
+    [multiple]="true"
+	dropdownPosition="bottom"
+    placeholder={{dropdownPlaceholder}}
+    [(ngModel)]="selectedOptions"
+	(ngModelChange)="onOptionChange($event)">
+    <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+        <div class="ng-value" *ngFor="let item of (items ? items.slice(0,2): [])">
+            <span class="ng-value-label">{{item}}</span>
+            <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+        </div>
+        <div class="ng-value" *ngIf="items.length > 2" >
+            <span class="ng-value-label">{{items.length - 2}} more...</span>
+        </div>
+    </ng-template>
+</ng-select>

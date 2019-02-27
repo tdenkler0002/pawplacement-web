@@ -11,6 +11,7 @@ export interface IAdopt {
 	animalName?: string;
 	animalType?: AnimalTypeEnum;
 	age?: string;
+	ageGroup?: string;
 	animalGender: string;
 	animalBreed?: string;
 	date?: Date;

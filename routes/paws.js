@@ -10,6 +10,7 @@ var Pets = require('../models/Pets.js');
 
 /* GET ALL NEWS */
 router.get('/news', function(req, res, next) {
+    // TODO: Use queries for filters
     News.find(function(err, items) {
         if (err) return next(err);
         res.json(items);

@@ -1,5 +1,44 @@
+<div class="adopt-search-container">
+    <div class="adopt-filter">
+        <span>Find your next best friend...</span>
+    </div>
+    <div class="adopt-filter-btn hvr-icon-wobble-vertical">
+        <span class="adopt-filter-btn-txt"
+            (click)="onAnimalTypeChange(animalTypeEnum.DOG)">
+            <i class="hvr-icon fas fa-dog"></i>
+            Dogs
+        </span>
+    </div>
+    <div class="adopt-filter-btn hvr-icon-wobble-vertical">
+        <span class="adopt-filter-btn-txt"
+            (click)="onAnimalTypeChange(animalTypeEnum.CAT)">
+            <i class="hvr-icon fas fa-cat"></i>
+            Cats
+        </span>
+    </div>
+    <div class="adopt-filter-btn hvr-icon-wobble-vertical">
+        <span class="adopt-filter-btn-txt"
+            (click)="onAnimalTypeChange(animalTypeEnum.BOTH)">
+            <i class="hvr-icon fas fa-paw"></i>
+            Both
+        </span>
+    </div>
+</div>
 <div class="adopt-dropdown-container">
-  <app-adopt-dropdown
-    [dropdownType]=animalOptionsEnum.BREED
-  ></app-adopt-dropdown>
+	<span class="adopt-dropdown">
+		<app-adopt-dropdown
+			[dropdownType]=animalOptionsEnum.BREED
+			[dropdownOptions]=animalBreeds
+			[dropdownPlaceholder]="'Select Breeds'"
+			(optionChange)="onFilterChange($event)">
+		</app-adopt-dropdown>
+	</span>
+	<span class="adopt-dropdown">
+		<app-adopt-dropdown
+			[dropdownType]=animalOptionsEnum.AGE
+			[dropdownOptions]=animalAges
+			[dropdownPlaceholder]="'Select Ages'"
+			(optionChange)="onFilterChange($event)">
+		</app-adopt-dropdown>
+	</span>
 </div>

@@ -31,6 +31,7 @@ import {
 ******************************/
 
 import { OwlModule } from 'ngx-owl-carousel';
+import { CoreModule } from './core/core.module';
 
 /*****************************
  *  Routes
@@ -56,6 +57,7 @@ import { OwlModule } from 'ngx-owl-carousel';
 		AppRoutingModule,
 		AdoptModule,
 		SharedModule,
+		CoreModule,
 
 		// Third-Party
 		OwlModule

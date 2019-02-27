@@ -21,7 +21,7 @@ import { INewsArticle } from '../../modules/shared/interfaces/index';
  *  Services
 ******************************/
 
-import { NewsService } from '../../services/index';
+import { NewsService } from '../../core/services/index';
 
 /*****************************
  *  Third-Party

@@ -87,10 +87,66 @@ export class AdoptService {
 				jurisdiction: adoption.jurisdiction,
 				image: adoption.Image
 			};
+			adopt.ageGroup = adopt.age ? this.calculateAgeGroup(adoption.age) : 'Age Not Listed';
 
 			adoptions.push(adopt);
 		}
 
 		return adoptions;
+	}
+
+	// TODO: make private once data hooked back up
+	calculateAgeGroup(age: string): string {
+		const yearRegex = /(\d{1,2}\s?\byears?\s?)/;
+		const monthRegex = /(\d{1,2}\s?\bmonths?\s?)/;
+		const weekRegex = /(\d{1,2}\s?\bweeks?\s?)/;
+
+		if (yearRegex.test(age)) {
+			return this.ageGroupInYears(age);
+		} else if (monthRegex.test(age)) {
+			return this.ageGroupInMonths(age);
+		} else if (weekRegex.test(age)) {
+			return this.ageGroupInWeeks(age);
+		} else {
+			return age;
+		}
+	}
+
+	private ageGroupInYears(originalAge: string): string {
+		const numRegex = /(\d{1,2})/;
+		const age = Number(originalAge.match(numRegex)[0]);
+		return age < 2 ? `${age} year` : `${age} years`;
+	}
+
+	private ageGroupInMonths(originalAge: string): string {
+		const numRegex = /(\d{1,2})/;
+		const age = Number(originalAge.match(numRegex)[0]);
+		let ageGroup = '';
+
+		if (age >= 1 && age <= 3) {
+			ageGroup = 'Puppy: 0-3 months';
+		} else if (age > 3 && age <= 6) {
+			ageGroup = 'Puppy: 3-6 months';
+		} else if (age > 6 && age <= 11) {
+			ageGroup = 'Puppy: 6-11 months';
+		}
+
+		return ageGroup;
+	}
+
+	private ageGroupInWeeks(originalAge: string): string{
+		const numRegex = /(\d{1,2})/;
+		const age = Number(originalAge.match(numRegex)[0]);
+		let ageGroup = '';
+
+		if (age >= 1 && age <= 12) {
+			ageGroup = 'Puppy: 0-3 months';
+		} else if (age >= 13 && age <= 24) {
+			ageGroup = 'Puppy: 3-6 months';
+		} else {
+			ageGroup = `${age} weeks`;
+		}
+
+		return ageGroup;
 	}
 }

@@ -15,7 +15,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
  *  Classes / pipes / enums
 ******************************/
 
-import { INewsArticle } from '../modules/shared/interfaces/index';
+import { INewsArticle } from '../../modules/shared/interfaces/index';
 
 /*****************************
  *  Third-Party

@@ -2,5 +2,6 @@ export enum AnimalOptionsEnum {
 	BREED = 'Breed',
 	AGE = 'Age',
 	GENDER = 'Gender',
-	LOCATION = 'Location'
+	LOCATION = 'Location',
+	TYPE = 'TYPE'
 }
