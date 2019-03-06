@@ -97,7 +97,7 @@ export class AdoptFilterComponent implements OnInit, OnDestroy, OnChanges {
 		const uniqueAnimalBreeds: Set<string> = new Set();
 		this.adoptions.forEach(animal => uniqueAnimalBreeds.add(animal.animalBreed));
 
-		return this.clonerService.deepClone<Array<string>>(Array.from(uniqueAnimalBreeds));
+		return this.clonerService.deepClone<Array<string>>(Array.from(uniqueAnimalBreeds)).sort();
 	}
 
 	private getAnimalAges(): Array<string> {

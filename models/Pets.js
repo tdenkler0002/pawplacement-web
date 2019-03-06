@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var PetsSchema = new mongoose.Schema({
+const PetsSchema = new mongoose.Schema({
     impound_no: String,
     Animal_ID: String,
     Data_Source: String,

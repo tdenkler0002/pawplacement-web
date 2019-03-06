@@ -19,6 +19,7 @@ import { catchError, map } from 'rxjs/operators';
 
 import { IAdopt } from '../interfaces/index';
 import { AnimalTypeEnum } from '../../shared/enums/index';
+import { stringify } from '@angular/core/src/render3/util';
 
 /*****************************
 *  Third-Party
@@ -41,7 +42,7 @@ export class AdoptService {
 
 	getAdoptions(): Observable<any> {
 		return this.http.get(apiUrl, httpOptions).pipe(
-			map(this.mapAdoptions),
+			map((res) => this.mapAdoptions(res)),
 			catchError(this.handleError)
 		);
 	}
@@ -87,7 +88,9 @@ export class AdoptService {
 				jurisdiction: adoption.jurisdiction,
 				image: adoption.Image
 			};
-			adopt.ageGroup = adopt.age ? this.calculateAgeGroup(adoption.age) : 'Age Not Listed';
+			adopt.ageGroup = adopt.age && adopt.age.length !== 0 ?
+				this.calculateAgeGroup(adopt.age) :
+				'NO AGE';
 
 			adoptions.push(adopt);
 		}
@@ -96,10 +99,10 @@ export class AdoptService {
 	}
 
 	// TODO: make private once data hooked back up
-	calculateAgeGroup(age: string): string {
-		const yearRegex = /(\d{1,2}\s?\byears?\s?)/;
-		const monthRegex = /(\d{1,2}\s?\bmonths?\s?)/;
-		const weekRegex = /(\d{1,2}\s?\bweeks?\s?)/;
+	calculateAgeGroup(age: any): string {
+		const yearRegex = /(\d{1,2}\s?\byears?\s?)/i;
+		const monthRegex = /(\d{1,2}\s?\bmonths?\s?)/i;
+		const weekRegex = /(\d{1,2}\s?\bweeks?\s?)/i;
 
 		if (yearRegex.test(age)) {
 			return this.ageGroupInYears(age);
@@ -113,36 +116,36 @@ export class AdoptService {
 	}
 
 	private ageGroupInYears(originalAge: string): string {
-		const numRegex = /(\d{1,2})/;
+		const numRegex = /(\d{1,2})/i;
 		const age = Number(originalAge.match(numRegex)[0]);
 		return age < 2 ? `${age} year` : `${age} years`;
 	}
 
 	private ageGroupInMonths(originalAge: string): string {
-		const numRegex = /(\d{1,2})/;
+		const numRegex = /(\d{1,2})/i;
 		const age = Number(originalAge.match(numRegex)[0]);
 		let ageGroup = '';
 
 		if (age >= 1 && age <= 3) {
-			ageGroup = 'Puppy: 0-3 months';
+			ageGroup = '0 0-3 months';
 		} else if (age > 3 && age <= 6) {
-			ageGroup = 'Puppy: 3-6 months';
+			ageGroup = '0 3-6 months';
 		} else if (age > 6 && age <= 11) {
-			ageGroup = 'Puppy: 6-11 months';
+			ageGroup = '0 6-11 months';
 		}
 
 		return ageGroup;
 	}
 
 	private ageGroupInWeeks(originalAge: string): string{
-		const numRegex = /(\d{1,2})/;
+		const numRegex = /(\d{1,2})/i;
 		const age = Number(originalAge.match(numRegex)[0]);
 		let ageGroup = '';
 
 		if (age >= 1 && age <= 12) {
-			ageGroup = 'Puppy: 0-3 months';
+			ageGroup = '0 0-3 months';
 		} else if (age >= 13 && age <= 24) {
-			ageGroup = 'Puppy: 3-6 months';
+			ageGroup = '0 3-6 months';
 		} else {
 			ageGroup = `${age} weeks`;
 		}

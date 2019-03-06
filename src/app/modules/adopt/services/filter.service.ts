@@ -52,54 +52,48 @@ export class FilterService {
 	}
 
 	private checkFilterStatus(filter: IAdoptFilter): void {
-		const filterTypeExists = this.currentFilters.filter(f => f.filterType === filter.filterType);
-		this.filteredAdoptions = [];
-
 		// If filter already exists, remove to re-add filter i.e ['trex'] to ['trex', 'poodle']
 		_.remove(this.currentFilters, (f) => f.filterType === filter.filterType);
 
 		if (filter.filterOptions.length) {
-			// if (filterTypeExists) {
-			// 	_.remove(this.currentFilters, (f) => f.filterType === filter.filterType);
-			// }
-
 			this.currentFilters.push(filter);
 		}
 	}
 
 	private handleFiltering(adoptions: Array<IAdopt>): Array<IAdopt> {
-		const filteredAdoptions: Array<IAdopt> = [];
+		let filteredAdoptions: Array<IAdopt> = [];
 		let filtered = false;
 
 		this.currentFilters.forEach(filter => {
-			debugger;
 			switch (filter.filterType) {
 				case this.animalOptionsEnum.BREED:
 					// TODO: handle this on svc query
-					const breedFilter = filtered ?
-						this.filterBreed(adoptions, filter.filterOptions) :
-						this.filterBreed(filteredAdoptions, filter.filterOptions
-					);
-
-					filteredAdoptions.push(...breedFilter);
+					filteredAdoptions = filtered ?
+						this.filterBreed(filteredAdoptions, filter.filterOptions) :
+						this.filterBreed(adoptions, filter.filterOptions);
 
 					filtered = true;
 					break;
 
 				case this.animalOptionsEnum.AGE:
-					filteredAdoptions.push(...filtered ?
-						this.filterAge(adoptions, filter.filterOptions) :
-						this.filterAge(filteredAdoptions, filter.filterOptions)
-					);
+					filteredAdoptions = filtered ?
+						this.filterAge(filteredAdoptions, filter.filterOptions) :
+						this.filterAge(adoptions, filter.filterOptions);
 
 					filtered = true;
 					break;
 
+				case this.animalOptionsEnum.GENDER:
+					filteredAdoptions = filtered ?
+						this.filterGender(filteredAdoptions, filter.filterOptions) :
+						this.filterGender(adoptions, filter.filterOptions);
+
+					break;
+
 				case this.animalOptionsEnum.TYPE:
-					filteredAdoptions.push(...filtered ?
-						this.toggleAnimalTypeChange(filter.filterOptions[0] as AnimalTypeEnum, adoptions) :
-						this.toggleAnimalTypeChange(filter.filterOptions[0] as AnimalTypeEnum, filteredAdoptions)
-					);
+					filteredAdoptions = filtered ?
+						this.toggleAnimalTypeChange(filter.filterOptions[0] as AnimalTypeEnum, filteredAdoptions) :
+						this.toggleAnimalTypeChange(filter.filterOptions[0] as AnimalTypeEnum, adoptions);
 
 					filtered = true;
 					break;
@@ -115,12 +109,15 @@ export class FilterService {
 	}
 
 	private filterBreed(adoptions: Array<IAdopt>, filters: Array<string>): Array<IAdopt> {
-		const test = adoptions.filter(animal => filters.includes(animal.animalBreed));
-		return test;
+		return adoptions.filter(animal => filters.includes(animal.animalBreed));
 	}
 
 	private filterAge(adoptions: Array<IAdopt>, filters: Array<string>): Array<IAdopt> {
 		return adoptions.filter(animal => filters.includes(animal.ageGroup));
+	}
+
+	private filterGender(adoptions: Array<IAdopt>, filters: Array<string>): Array<IAdopt> {
+		return adoptions.filter(animal => filters.includes(animal.animalGender));
 	}
 
 	// TODO change this to be handled on backend

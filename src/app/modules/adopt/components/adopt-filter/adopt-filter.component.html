@@ -40,5 +40,13 @@
 			[dropdownPlaceholder]="'Select Ages'"
 			(optionChange)="onFilterChange($event)">
 		</app-adopt-dropdown>
+    </span>
+    <span class="adopt-dropdown">
+		<app-adopt-dropdown
+			[dropdownType]=animalOptionsEnum.GENDER
+			[dropdownOptions]="['Female', 'Male']"
+			[dropdownPlaceholder]="'Select Gender'"
+			(optionChange)="onFilterChange($event)">
+		</app-adopt-dropdown>
 	</span>
 </div>

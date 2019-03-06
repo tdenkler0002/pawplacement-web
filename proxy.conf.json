@@ -1,0 +1,10 @@
+{
+    "/api/pets": {
+      "target": "http://localhost:3000",
+      "secure": false
+    },
+    "/api/news": {
+      "target": "http://localhost:3000",
+      "secure": false
+    }
+}
