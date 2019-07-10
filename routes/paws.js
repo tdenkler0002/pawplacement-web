@@ -35,7 +35,7 @@ router.post('/news/', function(req, res, next) {
 
 /* UPDATE NEWS */
 router.put('/news/:id', function(req, res, next) {
-    News.findByIdAndUpdate(req,params.id, req.body, function(err, post) {
+    News.findByIdAndUpdate(req.params.id, req.body, function(err, post) {
         if (err) return next(err);
         res.json(post);
     });
@@ -56,5 +56,26 @@ router.get('/pets', function(req, res, next) {
         res.json(items);
     });
 });
+
+/* GET ANIMALS BY BREED */
+router.get('/pets/filters', function(req, res, next) {
+
+    const breeds = req.query.breed;
+    // breed = breed.substring(1, breed.length-1);
+
+    Pets.find({"Animal_Breed": breed},
+    function (err, data) {
+        if (err) {
+            err.status = 406;
+            return next(err);
+        }
+        console.log(data);
+        return res.status(200).json({
+            message: 'success.', data:data
+        })
+    })
+});
+
+router.get('/pet')
 
 module.exports = router;

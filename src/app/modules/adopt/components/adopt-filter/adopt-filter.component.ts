@@ -27,6 +27,7 @@ import { AnimalTypeEnum } from 'src/app/modules/shared/enums';
 *******************************/
 
 import { EventService, ClonerService } from '../../../../core/services';
+import { FilterService } from '../../services';
 
 /********************************
 * Third-party
@@ -44,8 +45,8 @@ import * as _ from 'lodash';
 	templateUrl: './adopt-filter.component.html',
 	styleUrls: ['./adopt-filter.component.css']
 })
-export class AdoptFilterComponent implements OnInit, OnDestroy, OnChanges {
-	@Output() animalFilterChange: EventEmitter<IAdoptFilter> = new EventEmitter();
+export class AdoptFilterComponent implements OnInit, OnDestroy {
+	@Output() animalFilterChange: EventEmitter<string> = new EventEmitter();
 
 	animalOptionsEnum = AnimalOptionsEnum;
 	animalTypeEnum = AnimalTypeEnum;
@@ -56,7 +57,7 @@ export class AdoptFilterComponent implements OnInit, OnDestroy, OnChanges {
 	animalAges: Array<string> = [];
 	animalAgesMap: Map<string, Array<IAdopt>> = new Map();
 
-	constructor(private eventService: EventService, private clonerService: ClonerService) {
+	constructor(private eventService: EventService, private clonerService: ClonerService, private filterService: FilterService) {
 		this.animalsPopulated = this.eventService.animalsPopulatedSubject.subscribe((animals) => {
 			this.adoptions = animals;
 			this.updateDropdowns();
@@ -65,17 +66,14 @@ export class AdoptFilterComponent implements OnInit, OnDestroy, OnChanges {
 
 	ngOnInit() { }
 
-	ngOnChanges(changes: SimpleChanges): any {
-		if (changes.filteredAdoptions && changes.filteredAdoptions.currentValue) {
-		}
-	}
-
 	ngOnDestroy() {
 		this.animalsPopulated.unsubscribe();
 	}
 
 	onFilterChange(event: IAdoptFilter): void {
-		this.animalFilterChange.emit(event);
+		const filterQuery: string = this.filterService.buildFilters(event);
+
+		this.animalFilterChange.emit(filterQuery);
 	}
 
 	onAnimalTypeChange(event: AnimalTypeEnum): void {
