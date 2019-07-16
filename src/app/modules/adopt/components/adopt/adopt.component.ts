@@ -59,7 +59,6 @@ export class AdoptComponent implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.getAnimals();
-		// this.adoptService.getFilteredAdoptions('Siberian Husky');
 	}
 
 	ngOnDestroy() {
@@ -82,13 +81,11 @@ export class AdoptComponent implements OnInit, OnDestroy {
 	}
 
 	onAnimalFilterChange(animalFiltersQuery: string): void {
-		if (animalFiltersQuery.length === 0) {
-			this.filteredAdoptions = this.adoptions;
-		} else {
-			this.adoptService.getFilteredAdoptions(animalFiltersQuery).subscribe(filtered => this.filteredAdoptions = filtered);
-		}
-
-		this.eventService.animalsPopulatedSubject.next(this.filteredAdoptions);
+		animalFiltersQuery.length === 0 ?
+			this.handleUpdatedAdoptions(this.adoptions) :
+			this.adoptService.getFilteredAdoptions(animalFiltersQuery).subscribe(filtered => {
+				this.handleUpdatedAdoptions(filtered);
+			});
 	}
 
 	populateAdoptGrid(adoptions: Array<IAdopt>): void {
@@ -98,5 +95,10 @@ export class AdoptComponent implements OnInit, OnDestroy {
 				this.adoptions.push(adoption);
 			}
 		});
+	}
+
+	private handleUpdatedAdoptions(adoptions: Array<IAdopt>): void {
+			this.filteredAdoptions = adoptions;
+			this.eventService.animalsPopulatedSubject.next(this.filteredAdoptions);
 	}
 }

@@ -14,7 +14,7 @@ import { Injectable } from '@angular/core';
 * Classes, interfaces, directives, pipes
 *******************************/
 
-import { IAdoptFilter, IAdopt } from '../interfaces';
+import { IAdoptFilter } from '../interfaces';
 import { AnimalOptionsEnum } from '../enums';
 import { AnimalTypeEnum } from '../../shared/enums';
 
@@ -46,7 +46,11 @@ export class FilterService {
 	buildFilters(filter: IAdoptFilter): string {
 		this.checkFilterStatus(filter);
 
-		return this.createFilterQuery();
+		const filterQuery = this.currentFilters.length ?
+			this.createFilterQuery() :
+			'';
+
+		return filterQuery;
 	}
 
 	private checkFilterStatus(filter: IAdoptFilter): void {
@@ -59,7 +63,7 @@ export class FilterService {
 	}
 
 	private createFilterQuery(): string {
-		let filterQuery = '';
+		let filterQuery = '?filters';
 
 		this.currentFilters.forEach(f => {
 			switch (f.filterType) {
@@ -68,19 +72,19 @@ export class FilterService {
 					break;
 
 				case AnimalOptionsEnum.BREED:
-					const breeds = f.filterOptions.map(b => `'${b}'`).join(',');
-					filterQuery = filterQuery.concat(`?breed=[${breeds}]`);
+					const breeds: string = this.createQuotedQueryString(f.filterOptions);
+					filterQuery = filterQuery.concat(`&breed=[${breeds}]`);
 					break;
 
 				case AnimalOptionsEnum.GENDER:
-					filterQuery = filterQuery.concat(`?gender='${f.filterOptions}'`);
+					filterQuery = filterQuery.concat(`&gender='${f.filterOptions}'`);
 					break;
 
 				case AnimalOptionsEnum.TYPE:
 					if (f.filterOptions[0] === AnimalTypeEnum.BOTH) {
 						break;
 					}
-					filterQuery = filterQuery.concat(`?type=${f.filterOptions[0]}`);
+					filterQuery = filterQuery.concat(`&type=${f.filterOptions[0]}`);
 					break;
 
 				default:
@@ -94,12 +98,17 @@ export class FilterService {
 	private buildAgeQuery(filter: IAdoptFilter, filterQuery: string): string {
 		const ages = [];
 
+		// Animal age is calculated in some cases, lookup ages associated with age group
 		filter.filterOptions.forEach(age => {
-			ages.push(...Array.from(this.adoptService.animalAgeGroups.get(age)));
+			ages.push(...Array.from(this.adoptService.animalAgeGroupLookup.get(age)));
 		});
 
-		const formattedAges: string  = ages.map(a => `'${a}'`).join(',');
+		const formattedAges: string = this.createQuotedQueryString(ages);
 
-		return filterQuery.concat(`?Age=[${formattedAges}]`);
+		return filterQuery.concat(`&age=[${formattedAges}]`);
+	}
+
+	private createQuotedQueryString(filters: Array<string>): string {
+		return filters.map(filter => `"${filter}"`).join(',');
 	}
 }

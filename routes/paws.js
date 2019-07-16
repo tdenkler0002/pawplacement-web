@@ -59,11 +59,9 @@ router.get('/pets', function(req, res, next) {
 
 /* GET ANIMALS BY BREED */
 router.get('/pets/filters', function(req, res, next) {
+    const query = buildFilterQuery(req.query);
 
-    const breeds = req.query.breed;
-    // breed = breed.substring(1, breed.length-1);
-
-    Pets.find({"Animal_Breed": breed},
+    Pets.find(query,
     function (err, data) {
         if (err) {
             err.status = 406;
@@ -77,5 +75,27 @@ router.get('/pets/filters', function(req, res, next) {
 });
 
 router.get('/pet')
+
+function buildFilterQuery(request) {
+   let query = { "$and": []};
+
+   if (request.breed) {
+       query.$and.push({"Animal_Breed": {'$in': JSON.parse(request.breed)}});
+   }
+
+   if (request.age) {
+       query.$and.push({"Age": {'$in': JSON.parse(request.age.toUpperCase())}})
+   }
+
+   if (request.gender) {
+       query.$and.push({"Animal_Gender": request.gender});
+   }
+
+   if (request.type) {
+       query.$and.push({"animal_type": request.type});
+   }
+
+   return query;
+}
 
 module.exports = router;

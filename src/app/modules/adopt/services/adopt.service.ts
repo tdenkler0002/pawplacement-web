@@ -30,7 +30,7 @@ export class AdoptService {
 
 	apiUrl = '/api/pets/';
 	httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
-	animalAgeGroups: Map<string, Set<string>> = new Map();
+	animalAgeGroupLookup: Map<string, Set<string>> = new Map();
 
 	constructor(private http: HttpClient) { }
 
@@ -43,8 +43,7 @@ export class AdoptService {
 
 	getFilteredAdoptions(filterQuery: string): Observable<any> {
 		return this.http.get(`${this.apiUrl}/filters/${filterQuery}`, this.httpOptions).pipe(
-			map((res) => {
-			}),
+			map((res: any) => this.mapAdoptions(res.data)),
 			catchError(this.handleError)
 		);
 	}
@@ -160,10 +159,10 @@ export class AdoptService {
 	}
 
 	private createAgeGroupFilterLookup(age: string, ageGroup: string): void {
-		if (this.animalAgeGroups.get(ageGroup)) {
-			this.animalAgeGroups.get(ageGroup).add(age);
+		if (this.animalAgeGroupLookup.get(ageGroup)) {
+			this.animalAgeGroupLookup.get(ageGroup).add(age);
 		} else {
-			this.animalAgeGroups.set(ageGroup, new Set([age]));
+			this.animalAgeGroupLookup.set(ageGroup, new Set([age]));
 		}
 	}
 }
