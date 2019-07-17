@@ -19,7 +19,7 @@ import { AdoptGridComponent } from '../index';
 *  Services
 ******************************/
 
-import { AdoptService, FilterService } from '../../services';
+import { AdoptService } from '../../services';
 import { EventService } from 'src/app/core/services';
 
 /*****************************

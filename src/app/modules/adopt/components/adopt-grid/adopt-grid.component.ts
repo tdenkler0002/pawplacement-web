@@ -2,7 +2,7 @@
 *  Package Imports
 ******************************/
 
-import { Component, OnInit, OnDestroy, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 /*****************************
 *  Components

@@ -59,7 +59,6 @@ export class AdoptFilterComponent implements OnInit, OnDestroy {
 
 	constructor(private eventService: EventService, private clonerService: ClonerService, private filterService: FilterService) {
 		this.animalsPopulated = this.eventService.animalsPopulatedSubject.subscribe((animals) => {
-			debugger;
 			this.adoptions = animals;
 			this.updateDropdowns();
 		});

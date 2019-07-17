@@ -5,7 +5,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { HttpHandler, HttpClient } from '@angular/common/http';
 
-
 /*****************************
  *  Services
 ******************************/
@@ -28,6 +27,10 @@ describe('AdoptService', () => {
 	beforeEach(inject([AdoptService], s => {
 		service = s;
 	}));
+
+	afterAll(() => {
+		TestBed.resetTestingModule();
+	});
 
 	it('should be created', () => {
 		expect(service).toBeTruthy();
