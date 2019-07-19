@@ -2,8 +2,10 @@
 * Package and class imports
 *******************************/
 
-import { Component, OnInit, OnDestroy, Output, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Subscription, Observable, of } from 'rxjs';
+import { Component, OnInit, OnDestroy,
+	Output, EventEmitter
+} from '@angular/core';
+import { Subscription } from 'rxjs';
 
 /********************************
 * Modules
@@ -34,7 +36,6 @@ import { FilterService } from '../../services';
 *******************************/
 
 import * as _ from 'lodash';
-
 
 /********************************
 * Declaration

@@ -69,12 +69,7 @@ export class AdoptComponent implements OnInit, OnDestroy {
 
 	getAnimals(): void {
 		this.adoptSubscription = this.adoptService.getAdoptions().subscribe((res) => {
-			this.populateAdoptGrid(res);
-			this.filteredAdoptions = this.adoptions;
-
-			for (let index = 0; index > this.filteredAdoptions.length; index++) {
-				this.fakeImages[index] = '../../../assets/img/news_placeholder.jpg';
-			}
+			this.populateAdoptions(res);
 
 			this.eventService.animalsPopulatedSubject.next(this.adoptions);
 		});
@@ -88,17 +83,27 @@ export class AdoptComponent implements OnInit, OnDestroy {
 			});
 	}
 
-	populateAdoptGrid(adoptions: Array<IAdopt>): void {
+	populateAdoptions(adoptions: Array<IAdopt>): void {
+		this.filteredAdoptions = this.adoptions;
+
 		adoptions.forEach(adoption => {
-			// TODO change later
+			// TODO change later - some may not have names
 			if (adoption.animalName) {
 				this.adoptions.push(adoption);
 			}
 		});
+
+		this.createPlaceholderImages();
 	}
 
 	private handleUpdatedAdoptions(adoptions: Array<IAdopt>): void {
-			this.filteredAdoptions = adoptions;
-			this.eventService.animalsPopulatedSubject.next(this.filteredAdoptions);
+		this.filteredAdoptions = adoptions;
+		this.eventService.animalsPopulatedSubject.next(this.filteredAdoptions);
+	}
+
+	private createPlaceholderImages(): void {
+		for (let index = 0; index > this.filteredAdoptions.length; index++) {
+			this.fakeImages[index] = '../../../assets/img/news_placeholder.jpg';
+		}
 	}
 }
