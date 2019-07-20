@@ -4,7 +4,7 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 /*****************************
 *  Components
@@ -12,8 +12,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
 	AdoptComponent, AdoptGridComponent,
-	AdoptFilterComponent, AdoptDropdownComponent
+	AdoptFilterComponent, AdoptDropdownComponent,
+	AdoptDetailComponent
 } from './components/index';
+
+import { AdoptRoutingModule } from './adopt-routing.module';
 
 /*****************************
 *  Services
@@ -33,13 +36,15 @@ import { NgSelectModule } from '@ng-select/ng-select';
 	imports: [
 		CommonModule,
 		FormsModule,
+		AdoptRoutingModule,
 		NgSelectModule
 	],
 	declarations: [
 		AdoptComponent,
 		AdoptGridComponent,
 		AdoptFilterComponent,
-		AdoptDropdownComponent
+		AdoptDropdownComponent,
+		AdoptDetailComponent
 	]
 })
 export class AdoptModule { }

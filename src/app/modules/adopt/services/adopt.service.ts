@@ -41,6 +41,13 @@ export class AdoptService {
 		);
 	}
 
+	getAdoptionDetail(animalId: string): Observable<any> {
+		return this.http.get(`${this.apiUrl}/adoptDetail/${animalId}`, this.httpOptions).pipe(
+			map((res: any) => this.mapAdoptions(res.data)),
+			catchError(this.handleError)
+		);
+	}
+
 	getFilteredAdoptions(filterQuery: string): Observable<any> {
 		return this.http.get(`${this.apiUrl}/filters/${filterQuery}`, this.httpOptions).pipe(
 			map((res: any) => this.mapAdoptions(res.data)),

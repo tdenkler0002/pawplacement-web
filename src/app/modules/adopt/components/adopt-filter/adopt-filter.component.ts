@@ -59,9 +59,8 @@ export class AdoptFilterComponent implements OnInit, OnDestroy {
 	animalAgesMap: Map<string, Array<IAdopt>> = new Map();
 
 	constructor(private eventService: EventService, private clonerService: ClonerService, private filterService: FilterService) {
-		this.animalsPopulated = this.eventService.animalsPopulatedSubject.subscribe((animals) => {
-			this.adoptions = animals;
-			this.updateDropdowns();
+		this.animalsPopulated = this.eventService.animalsPopulatedSubject.subscribe((filteredEvent) => {
+			this.handleAnimalsPopulated(filteredEvent);
 		});
 	}
 
@@ -89,6 +88,14 @@ export class AdoptFilterComponent implements OnInit, OnDestroy {
 	updateDropdowns(): void {
 		this.animalBreeds = this.getAnimalBreeds();
 		this.animalAges = this.getAnimalAges();
+	}
+
+	private handleAnimalsPopulated(filteredEvent: any): void {
+		this.adoptions = filteredEvent.animals;
+
+		if (!filteredEvent.filtered) {
+			this.updateDropdowns();
+		}
 	}
 
 	private getAnimalBreeds(): Array<string> {

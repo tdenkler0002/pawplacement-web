@@ -23,7 +23,7 @@ import { IAdopt } from '../../modules/adopt/interfaces/index';
 })
 export class EventService {
 
-	animalsPopulatedSubject = new Subject<Array<IAdopt>>();
+	animalsPopulatedSubject = new Subject<{animals: Array<IAdopt>, filtered: boolean}>();
 
 	constructor() { }
 

@@ -74,7 +74,18 @@ router.get('/pets/filters', function(req, res, next) {
     })
 });
 
-router.get('/pet')
+router.get('/pets/adoptDetail/:animalId', function(req, res, next) {
+    Pets.find({"Animal_ID": req.params.animalId}, function(err, data) {
+        if (err) {
+            err.status = 406;
+            return next(err);
+        }
+        console.log(data);
+        return res.status(200).json({
+            message: 'success.', data:data
+        })
+    })
+});
 
 function buildFilterQuery(request) {
    let query = { "$and": []};
@@ -95,7 +106,11 @@ function buildFilterQuery(request) {
        query.$and.push({"animal_type": request.type});
    }
 
-   return query;
+   if(!query.$and.length) {
+       query = {};
+   }
+
+    return query;
 }
 
 module.exports = router;

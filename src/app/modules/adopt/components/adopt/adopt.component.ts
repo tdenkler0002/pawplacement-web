@@ -71,7 +71,7 @@ export class AdoptComponent implements OnInit, OnDestroy {
 		this.adoptSubscription = this.adoptService.getAdoptions().subscribe((res) => {
 			this.populateAdoptions(res);
 
-			this.eventService.animalsPopulatedSubject.next(this.adoptions);
+			this.eventService.animalsPopulatedSubject.next({animals: this.adoptions, filtered: false});
 		});
 	}
 
@@ -98,7 +98,7 @@ export class AdoptComponent implements OnInit, OnDestroy {
 
 	private handleUpdatedAdoptions(adoptions: Array<IAdopt>): void {
 		this.filteredAdoptions = adoptions;
-		this.eventService.animalsPopulatedSubject.next(this.filteredAdoptions);
+		this.eventService.animalsPopulatedSubject.next({animals: this.filteredAdoptions, filtered: true});
 	}
 
 	private createPlaceholderImages(): void {

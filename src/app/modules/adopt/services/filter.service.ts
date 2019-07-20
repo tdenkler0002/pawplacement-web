@@ -77,7 +77,7 @@ export class FilterService {
 					break;
 
 				case AnimalOptionsEnum.GENDER:
-					filterQuery = filterQuery.concat(`&gender='${f.filterOptions}'`);
+					filterQuery = filterQuery.concat(`&gender=${f.filterOptions}`);
 					break;
 
 				case AnimalOptionsEnum.TYPE:
@@ -92,6 +92,7 @@ export class FilterService {
 			}
 		});
 
+		debugger;
 		return filterQuery;
 	}
 
