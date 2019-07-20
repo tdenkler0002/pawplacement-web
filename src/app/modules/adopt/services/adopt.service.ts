@@ -18,31 +18,39 @@ import { catchError, map } from 'rxjs/operators';
 ******************************/
 
 import { IAdopt } from '../interfaces/index';
-import { AnimalTypeEnum } from '../../shared/enums/index';
-import { stringify } from '@angular/core/src/render3/util';
 
 /*****************************
 *  Third-Party
 ******************************/
-
-const httpOptions = {
-	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
-const apiUrl = '/api/pets/';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class AdoptService {
 
-	// TODO implement mongo filtering of data for animals
+	apiUrl = '/api/pets/';
+	httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
+	animalAgeGroupLookup: Map<string, Set<string>> = new Map();
 
 	constructor(private http: HttpClient) { }
 
 	getAdoptions(): Observable<any> {
-		return this.http.get(apiUrl, httpOptions).pipe(
+		return this.http.get(this.apiUrl, this.httpOptions).pipe(
 			map((res) => this.mapAdoptions(res)),
+			catchError(this.handleError)
+		);
+	}
+
+	getAdoptionDetail(animalId: string): Observable<any> {
+		return this.http.get(`${this.apiUrl}/adoptDetail/${animalId}`, this.httpOptions).pipe(
+			map((res: any) => this.mapAdoptions(res.data)),
+			catchError(this.handleError)
+		);
+	}
+
+	getFilteredAdoptions(filterQuery: string): Observable<any> {
+		return this.http.get(`${this.apiUrl}/filters/${filterQuery}`, this.httpOptions).pipe(
+			map((res: any) => this.mapAdoptions(res.data)),
 			catchError(this.handleError)
 		);
 	}
@@ -98,21 +106,25 @@ export class AdoptService {
 		return adoptions;
 	}
 
-	// TODO: make private once data hooked back up
-	calculateAgeGroup(age: any): string {
+	// TODO: figure out ordering
+	private calculateAgeGroup(age: any): string {
 		const yearRegex = /(\d{1,2}\s?\byears?\s?)/i;
 		const monthRegex = /(\d{1,2}\s?\bmonths?\s?)/i;
 		const weekRegex = /(\d{1,2}\s?\bweeks?\s?)/i;
 
+		let ageGroup = age;
+
 		if (yearRegex.test(age)) {
-			return this.ageGroupInYears(age);
+			ageGroup = this.ageGroupInYears(age);
 		} else if (monthRegex.test(age)) {
-			return this.ageGroupInMonths(age);
+			ageGroup = this.ageGroupInMonths(age);
 		} else if (weekRegex.test(age)) {
-			return this.ageGroupInWeeks(age);
-		} else {
-			return age;
+			ageGroup = this.ageGroupInWeeks(age);
 		}
+
+		this.createAgeGroupFilterLookup(age, ageGroup);
+
+		return ageGroup;
 	}
 
 	private ageGroupInYears(originalAge: string): string {
@@ -151,5 +163,13 @@ export class AdoptService {
 		}
 
 		return ageGroup;
+	}
+
+	private createAgeGroupFilterLookup(age: string, ageGroup: string): void {
+		if (this.animalAgeGroupLookup.get(ageGroup)) {
+			this.animalAgeGroupLookup.get(ageGroup).add(age);
+		} else {
+			this.animalAgeGroupLookup.set(ageGroup, new Set([age]));
+		}
 	}
 }

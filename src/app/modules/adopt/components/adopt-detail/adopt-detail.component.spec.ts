@@ -3,15 +3,12 @@
 ******************************/
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CommonModule } from '@angular/common';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /*****************************
 *  Components
 ******************************/
 
-import { AdoptDropdownComponent } from './adopt-dropdown.component';
+import { AdoptDetailComponent } from './adopt-detail.component';
 
 /*****************************
 *  Services
@@ -24,28 +21,21 @@ import { AdoptDropdownComponent } from './adopt-dropdown.component';
 ******************************/
 
 
-describe('AdoptDropdownComponent', () => {
-	let component: AdoptDropdownComponent;
-	let fixture: ComponentFixture<AdoptDropdownComponent>;
+describe('AdoptDetailComponent', () => {
+	let component: AdoptDetailComponent;
+	let fixture: ComponentFixture<AdoptDetailComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [
-				AdoptDropdownComponent
-			],
-			imports: [
-				CommonModule,
-				FormsModule,
-				ReactiveFormsModule,
-				NgSelectModule
-			]
+			declarations: [AdoptDetailComponent]
 		})
 			.compileComponents();
 	}));
 
 	beforeEach(() => {
-		fixture = TestBed.createComponent(AdoptDropdownComponent);
+		fixture = TestBed.createComponent(AdoptDetailComponent);
 		component = fixture.componentInstance;
+		fixture.detectChanges();
 	});
 
 	it('should create', () => {

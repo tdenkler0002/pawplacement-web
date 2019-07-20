@@ -35,7 +35,7 @@ router.post('/news/', function(req, res, next) {
 
 /* UPDATE NEWS */
 router.put('/news/:id', function(req, res, next) {
-    News.findByIdAndUpdate(req,params.id, req.body, function(err, post) {
+    News.findByIdAndUpdate(req.params.id, req.body, function(err, post) {
         if (err) return next(err);
         res.json(post);
     });
@@ -56,5 +56,61 @@ router.get('/pets', function(req, res, next) {
         res.json(items);
     });
 });
+
+/* GET ANIMALS BY BREED */
+router.get('/pets/filters', function(req, res, next) {
+    const query = buildFilterQuery(req.query);
+
+    Pets.find(query,
+    function (err, data) {
+        if (err) {
+            err.status = 406;
+            return next(err);
+        }
+        console.log(data);
+        return res.status(200).json({
+            message: 'success.', data:data
+        })
+    })
+});
+
+router.get('/pets/adoptDetail/:animalId', function(req, res, next) {
+    Pets.find({"Animal_ID": req.params.animalId}, function(err, data) {
+        if (err) {
+            err.status = 406;
+            return next(err);
+        }
+        console.log(data);
+        return res.status(200).json({
+            message: 'success.', data:data
+        })
+    })
+});
+
+function buildFilterQuery(request) {
+   let query = { "$and": []};
+
+   if (request.breed) {
+       query.$and.push({"Animal_Breed": {'$in': JSON.parse(request.breed)}});
+   }
+
+   if (request.age) {
+       query.$and.push({"Age": {'$in': JSON.parse(request.age.toUpperCase())}})
+   }
+
+   if (request.gender) {
+       query.$and.push({"Animal_Gender": request.gender});
+   }
+
+   if (request.type) {
+       query.$and.push({"animal_type": request.type});
+   }
+
+   if(!query.$and.length) {
+       query = {};
+   }
+
+    return query;
+}
 
 module.exports = router;

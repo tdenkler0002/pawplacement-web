@@ -5,7 +5,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { HttpHandler, HttpClient } from '@angular/common/http';
 
-
 /*****************************
  *  Services
 ******************************/
@@ -13,6 +12,8 @@ import { HttpHandler, HttpClient } from '@angular/common/http';
 import { AdoptService } from './adopt.service';
 
 describe('AdoptService', () => {
+	let service: AdoptService;
+
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			providers: [
@@ -23,7 +24,15 @@ describe('AdoptService', () => {
 		});
 	});
 
-	it('should be created', inject([AdoptService], (service: AdoptService) => {
-		expect(service).toBeTruthy();
+	beforeEach(inject([AdoptService], s => {
+		service = s;
 	}));
+
+	afterAll(() => {
+		TestBed.resetTestingModule();
+	});
+
+	it('should be created', () => {
+		expect(service).toBeTruthy();
+	});
 });

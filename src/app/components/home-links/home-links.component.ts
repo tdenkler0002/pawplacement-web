@@ -31,14 +31,6 @@ import { OwlCarousel } from 'ngx-owl-carousel';
 export class HomeLinksComponent implements OnInit {
 	linkType = LinkTypesEnum;
 
-	textHovered = false;
-
-	adoptText = '';
-	donateText = '';
-	volunteerText = '';
-	resourcesText = '';
-	aboutText = '';
-
 	sliderOptions = {
 		items: 3,
 		autoplay: true,
@@ -61,47 +53,5 @@ export class HomeLinksComponent implements OnInit {
 	constructor(@Inject(DOCUMENT) private document: any) { }
 
 	ngOnInit() {
-	}
-
-	populateHoverText(linkPage: LinkTypesEnum): void {
-		switch (linkPage) {
-			case LinkTypesEnum.Adopt:
-				this.adoptText = 'Learn How to Adopt, See Our Available Cats and Dogs and Recent Adoptions.';
-				break;
-
-			case LinkTypesEnum.Volunteer:
-				this.volunteerText = 'Join our Team! Become an Adoption Rep, Foster parent, Kitty Caretaker or Dog Walker';
-				break;
-
-			case LinkTypesEnum.Donate:
-				this.donateText = 'Make a monetary gift, Donate an item, Donate in Honor Of';
-				break;
-
-			case LinkTypesEnum.Resources:
-				this.resourcesText = 'Veterinary Clinics, Emergency Clinics, Training, Grooming, Boarding, Photography';
-			break;
-
-			case LinkTypesEnum.About:
-				this.aboutText = 'About Text will go here';
-			break;
-
-			default:
-				break;
-		}
-
-		this.toggleHoverText(true);
-	}
-
-	private toggleHoverText(showText: boolean): void {
-		this.textHovered = showText;
-
-		// reset hover text
-		if (!this.textHovered) {
-			this.adoptText = '';
-			this.donateText = '';
-			this.resourcesText = '';
-			this.volunteerText = '';
-			this.aboutText  = '';
-		}
 	}
 }

@@ -1,8 +1,9 @@
 <div class="adopt-container">
 	<div class="adopt-grid">
-		<div class="adopt-card" *ngFor="let adoption of filteredAdoptions">
+		<div class="adopt-card" *ngFor="let adoption of filteredAdoptions"
+			[routerLink]="['/adoption', adoption.animalID]">
 			<div class="img-wrapper">
-				<img class="adopt-img" src="../../../assets/img/news_placeholder.jpg" />
+				<img class="adopt-img" src="../../../assets/img/news_placeholder.jpg"/>
 			</div>
 			<div class="adopt-details">
 				<span class="adopt-breed">

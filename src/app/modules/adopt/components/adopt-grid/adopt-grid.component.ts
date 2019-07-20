@@ -2,7 +2,9 @@
 *  Package Imports
 ******************************/
 
-import { Component, OnInit, OnDestroy, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, Input,
+	Output, EventEmitter
+} from '@angular/core';
 
 /*****************************
 *  Components
@@ -10,10 +12,6 @@ import { Component, OnInit, OnDestroy, Input, SimpleChanges, OnChanges } from '@
 /*****************************
 *  Services
 ******************************/
-
-import { AdoptService } from '../../services/index';
-import { EventService } from '../../../../core/services/index';
-
 /*****************************
 *  Interfaces / enums / classes
 ******************************/
@@ -32,11 +30,11 @@ import { AnimalTypeEnum } from '../../../shared/enums/index';
 })
 export class AdoptGridComponent implements OnInit {
 	@Input() filteredAdoptions: Array<IAdopt> = [];
+	@Output() adoptionSelected: EventEmitter<IAdopt> = new EventEmitter();
 
 	animalType = AnimalTypeEnum;
 
 	constructor() { }
 
 	ngOnInit() { }
-
 }
